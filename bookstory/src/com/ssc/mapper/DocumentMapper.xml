@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DocumentMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap type="com.ssc.model.Document" id="document">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="id" column="id" />
+		<result property="category" column="category" />
+		<result property="writerName" column="writer_name" />
+		<result property="writerPw" column="writer_pw" />
+		<result property="email" column="email" />
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="hit" column="hit" />
+		<result property="regDate" column="reg_date" />
+		<result property="editDate" column="edit_date" />
+		<result property="ipAddress" column="ip_address" />
+		<result property="userId" column="user_id" />
+	</resultMap>
+	
+	<!-- 게시글 정보 저장하기 -->
+	<insert id="insertDocument" parameterType=""
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO bbs_document(
+			category, writer_name, email, subject, content, hit, reg_date, edit_date, ip_address,
+			member_id, writer_pw
+		)VALUES(
+			#{category}, #{writerName}, #{email}, #{subject}, #{content}, 0, now(), now(), #{ipAddress},
+			
+			<choose>
+				<when test="memberId == 0">
+					null, password(#{writerPw})
+				</when>
+				<otherwise>
+					#{memberId}, #{writerPw}
+				</otherwise>
+			</choose>		
+		)
+	</insert>
+	
+	
+	
+</mapper>
+
+
+		
