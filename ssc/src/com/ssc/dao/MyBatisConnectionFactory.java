@@ -18,18 +18,13 @@ public class MyBatisConnectionFactory {
     // --> import org.apache.ibatis.session.SqlSessionFactory
     private static SqlSessionFactory sqlSessionFactory;
 
-    // ㅎㅎㅎㅎㅎㅎ
-    // Hello World
-    /// sadfasdfsdf
-
     /** XML에 명시된 접속 정보를 읽어들인다. */
     static{
 	try{
 	    // 접속 정보를 명시하고 있는 XML의 경로 읽기
 	    // --> import java.io.Reader
 	    // --> import org.apache.ibatis.io.Resources;
-	    Reader reader = Resources.getResourceAsReader(
-		    "com/ssc/dao/config.xml");
+	    Reader reader = Resources.getResourceAsReader("com/ssc/dao/config.xml");
 	    
 	    if(sqlSessionFactory == null){
 		// --> import org.apache.ibatis.session.SqlSessionFactoryBuilder;
