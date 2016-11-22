@@ -1,5 +1,7 @@
 package com.ssc.service.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +35,18 @@ public class DocumentServiceImpl implements DocumentService {
 		}finally{
 			sqlSession.commit();
 		}
+	}
+
+	@Override
+	public int selectDocumentCount(Document document) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Document> selectDocumentList(Document document) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
