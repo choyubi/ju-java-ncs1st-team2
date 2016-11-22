@@ -18,6 +18,29 @@
 		<result property="documentId" column="document_id" />
 		<result property="userId" column="user_id" />
 	</resultMap>
+	
+<!-- 게시물마다 댓글..추가 어렵다 -->
+<insert id="insertCommon" parameterType="com.ssc.model.Comment">
+	INSERT INTO comment(
+		writer_name, writer_pw, email, content, reg_date, edit_date, ip_address, document_id, user_id
+	) VALUES (
+			#{writerName},#{writerPw},#{email},#{content},now(),now(),#{ipAddress},#{documentId},#{userId}		
+			<choose>
+				<when test="userId == 0">
+					null, password(#{writerPw})
+				</when>
+				<otherwise>
+					#{userId},#{writerPw}
+				</otherwise>
+			</choose>
+		)
+</insert>
+
+
+<!-- 어떻게 수정해야될까.. -->
+<!-- 삭제도 모르겠다. -->
+<!-- 게시물마다 댓글 셀렉트 -->
+
 </mapper>
 
 
