@@ -11,7 +11,6 @@
 		<result property="userId" column="user_id"/>
 		<result property="userPw" column="user_pw"/>
 		<result property="name" column="name"/>
-		<result property="jumin" column="jumin"/>
 		<result property="addr1" column="addr1"/>
 		<result property="addr2" column="addr2"/>
 		<result property="tel" column="tel"/>
@@ -22,6 +21,7 @@
 		<result property="regDate" column="reg_date"/>
 		<result property="editDate" column="edit_date"/>
 		<result property="profileImg" column="profile_img"/>
+		<result property="licNum" column="lic_num"/>
 				
 	</resultMap>
 </mapper>

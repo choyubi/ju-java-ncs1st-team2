@@ -8,16 +8,16 @@
 	<resultMap type="com.ssc.model.Zone" id="zone">
 		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
 		<result property="num" column="num" />
-		<result property="zoneRegion1Short" column="zone_region1_short" />
 		<result property="zoneName" column="zone_name" />
 		<result property="zoneAddr" column="zone_addr" />
 		<result property="zoneLat" column="zone_lat" />
 		<result property="zoneLng" column="zone_lng" />
+		<result property="zoneRegion1Short" column="zone_region1_short" />
 
 	</resultMap>
 	
    <select id="selectZoneList" parameterType="com.ssc.model.Zone" resultMap="zone">
-    	SELECT num, zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
+    	SELECT num,  zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
     </select>
 </mapper>
 
