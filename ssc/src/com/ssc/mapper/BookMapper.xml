@@ -12,8 +12,47 @@
 		<result property="endDate" column="end_date" />
 		<result property="carCid" column="car_cid" />
 		<result property="userId" column="user_id" />
-
 	</resultMap>
+	
+	<!-- 예약 정보를 추가한다  -->
+	<insert id="insertBook" parameterType="com.ssc.model.Book" useGeneratedKeys="true" keyProperty="bid">
+		INSERT INTO book (
+		start_date, end_date, car_cid, user_id
+		) VALUES (
+		#{startDate}, #{endDate}, #{carCid}, #{userId}
+		)
+	</insert>
+	
+	<!-- 예약 정보를 삭제한다 -->
+	<delete id="deleteBook" parameterType="com.ssc.model.Book">
+		DELETE FROM book WHERE bid=#{bid};
+	</delete>
+	
+	<!-- 예약 정보를 수정한다 -->
+	<update id="updateBook" parameterType="com.ssc.model.Book">
+		UPDATE book SET 
+			start_date=#{startDate}, end_date=#{endDate}, car_cid=#{carCid}, user_id=#{userId}
+		WHERE bid=#{bid}
+	</update>
+	
+	<!-- 예약 상세정보를 조회한다 -->
+	<select id="selectBook" parameterType="com.ssc.model.Book" resultMap="book">
+		<!-- "#{변수명}" 으로 표시된 곳에 파라미터로 전달된 Beans의 멤버변수값이 치환된다. -->
+		SELECT
+			start_date, end_date, car_cid, user_id
+		FROM book
+		WHERE bid=#{bid}
+	</select>
+	
+	<!-- 예약 정보를 전부 조회한다 -->
+	<select id="selectBookList" parameterType="com.ssc.model.Book" resultMap="book">
+		<!-- 이 안에서 처리할 SQL문을 명시한다. -->
+		SELECT
+			start_date, end_date, car_cid, user_id
+		FROM book
+		ORDER BY bid ASC
+	</select>
+	
 </mapper>
 
 

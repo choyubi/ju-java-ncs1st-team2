@@ -1,5 +1,7 @@
 package com.ssc.service;
 
+import java.util.List;
+
 import com.ssc.model.Book;
 
 public interface BookService {
@@ -12,7 +14,7 @@ public interface BookService {
 	/**
 	 * 예약 리스트 보기
 	 */
-	public Book selectBookList(Book book) throws Exception;
+	public List<Book> selectBookList(Book book) throws Exception;
 
 	/**
 	 * 예약 추가
