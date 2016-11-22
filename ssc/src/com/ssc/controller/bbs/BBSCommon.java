@@ -42,6 +42,8 @@ public class BBSCommon {
 				bbsName = "1:1문의";
 			}else if(category.equals("review")){
 				bbsName = "이용후기";
+			}else if(category.equals("gallery")){
+				bbsName = "추천지";
 			}
 		}
 		
@@ -53,12 +55,6 @@ public class BBSCommon {
 		return bbsName;
 		}
 }
-	
-
-
-
-
-
 
 
 
