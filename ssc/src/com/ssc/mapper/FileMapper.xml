@@ -2,21 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="CommentMapper">
+<mapper namespace="FileMapper">
 
 	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
-	<resultMap type="com.ssc.model.Comment" id="comment">
+	<resultMap type="com.ssc.model.File" id="file">
 		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
 		<result property="id" column="id" />
-		<result property="writerName" column="writer_name" />
-		<result property="writerPw" column="writer_pw" />
-		<result property="email" column="email" />
-		<result property="content" column="content" />
+		<result property="originName" column="origin_name" />
+		<result property="fileDir" column="file_dir" />
+		<result property="fileName" column="file_name" />
+		<result property="contentType" column="content_type" />
+		<result property="fileSize" column="file_size" />
 		<result property="regDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
-		<result property="ipAddress" column="ip_address" />
 		<result property="documentId" column="document_id" />
-		<result property="userId" column="user_id" />
 	</resultMap>
 </mapper>
 

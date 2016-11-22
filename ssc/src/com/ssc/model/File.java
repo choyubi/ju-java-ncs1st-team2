@@ -6,10 +6,10 @@ public class File {
 	private String fileDir;
 	private String fileName;
 	private String contentType;
-	private long fileSize;
+	private String fileSize;
 	private String regDate;
 	private String editDate;
-	private int bbsDocumentId;
+	private int documentId;
 	public int getId() {
 		return id;
 	}
@@ -40,10 +40,10 @@ public class File {
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	public long getFileSize() {
+	public String getFileSize() {
 		return fileSize;
 	}
-	public void setFileSize(long fileSize) {
+	public void setFileSize(String fileSize) {
 		this.fileSize = fileSize;
 	}
 	public String getRegDate() {
@@ -58,17 +58,17 @@ public class File {
 	public void setEditDate(String editDate) {
 		this.editDate = editDate;
 	}
-	public int getBbsDocumentId() {
-		return bbsDocumentId;
+	public int getDocumentId() {
+		return documentId;
 	}
-	public void setBbsDocumentId(int bbsDocumentId) {
-		this.bbsDocumentId = bbsDocumentId;
+	public void setDocumentId(int documentId) {
+		this.documentId = documentId;
 	}
 	@Override
 	public String toString() {
 		return "File [id=" + id + ", originName=" + originName + ", fileDir=" + fileDir + ", fileName=" + fileName
 				+ ", contentType=" + contentType + ", fileSize=" + fileSize + ", regDate=" + regDate + ", editDate="
-				+ editDate + ", bbsDocumentId=" + bbsDocumentId + "]";
+				+ editDate + ", documentId=" + documentId + "]";
 	}
 	
 	

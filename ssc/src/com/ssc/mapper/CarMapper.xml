@@ -7,14 +7,11 @@
 	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
 	<resultMap type="com.ssc.model.Car" id="car">
 		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
-		<result property="cid" column="cid" />
-		<result property="cname" column="cname" />
-		<result property="ckind" column="ckind" />
-		<result property="cpay" column="cpay" />
-		<result property="userId" column="user_id" />
-		
+		<result property="id" column="id" />
+		<result property="carName" column="car_name" />
+		<result property="carKind" column="car_kind" />
+		<result property="carPay" column="car_pay" />
 		<result property="zoneNum" column="zone_num" />
-
 	</resultMap>
 </mapper>
 

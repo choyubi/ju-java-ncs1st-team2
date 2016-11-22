@@ -22,7 +22,7 @@
 	</resultMap>
 	
 	<!-- 게시글 정보 저장하기 -->
-	<insert id="insertDocument" parameterType=""
+	<insert id="insertDocument" parameterType="com.ssc.model.Document"
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO bbs_document(
 			category, writer_name, email, subject, content, hit, reg_date, edit_date, ip_address,
