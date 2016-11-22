@@ -1,6 +1,6 @@
 package com.ssc.service.impl;
 
-import com.ssc.model.Book;
+import com.ssc.model.Book;  
 import com.ssc.service.BookService;
 
 public class BookServiceImpl implements BookService{
