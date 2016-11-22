@@ -32,7 +32,7 @@
 						<li class="active"><a href="${pageContext.request.contextPath}/main.do">Home</a></li>
 						<li><a href="${pageContext.request.contextPath}/sub1.do">서비스안내</a></li>
 						<li><a href="${pageContext.request.contextPath}/bbs/document_list.do?category=notice">고객센터</a></li>
-						<li><a href="${pageContext.request.contextPath}/bbs/document_list.do?category=gallery">추천지</a></li>
+						<li><a href="${pageContext.request.contextPath}/rec.do">추천지</a></li>
 						<li><a href="${pageContext.request.contextPath}/book.do">예약/찾기</a></li>
 
 						<c:choose>

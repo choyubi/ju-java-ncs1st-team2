@@ -19,7 +19,7 @@
 		<div class="container" id="b">
 			<div class="col-sm-2" id="sidebar" role="navigation">
 				<div class="list-group">
-					<a href="${pageContext.request.contextPath}/rec.do" class="list-group-item"><strong>추천지</strong></a>
+					<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=gallery" class="list-group-item"><strong>추천지</strong></a>
 					<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=review" class="list-group-item"><strong>이용후기</strong></a>
 
 
@@ -77,10 +77,13 @@
 						</div>
 						<!--// 게시물 하나 끝 -->
 					</div>
+						<!-- 더 보기 버튼 -->
+						<div class="">
+							<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=gallery" class="btn btn-info btn-block">더 보기</a>	
+						</div>
 					<!-- row 영역 끝 -->				
 				</div>
 				<!--게시판 contain 끝 -->
-
 			</div>
 			<!-- col-sm-10 끝 -->
 
@@ -90,7 +93,7 @@
 
 
 		<hr>	
-
+	
 	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
 	
 </body>
