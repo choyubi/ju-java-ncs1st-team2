@@ -18,6 +18,8 @@ public class MyBatisConnectionFactory {
     // --> import org.apache.ibatis.session.SqlSessionFactory
     private static SqlSessionFactory sqlSessionFactory;
     
+// ㅎㅎㅎㅎㅎㅎ
+
     /** XML에 명시된 접속 정보를 읽어들인다. */
     static{
 	try{
