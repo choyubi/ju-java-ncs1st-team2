@@ -27,16 +27,14 @@
 
 				<div class="row" id="c">
 					<div class="page-header">
-						<h1>자주묻는질문</h1>
-					</div>
-					<div class="media">
 						<img src="${pageContext.request.contextPath}/img/bbs.png">
-						<div class="media-body">
-							<h4>SSC가 궁금하세요? 자주찾는 질문을 이용하세요. 고객님의 궁금하신 사항을 빠르고 정확하게 해결하실
+						<h1>자주묻는질문</h1>
+						<br>
+						<h4>SSC가 궁금하세요? 자주찾는 질문을 이용하세요. 고객님의 궁금하신 사항을 빠르고 정확하게 해결하실
 								수 있습니다.</h4>
-							<hr />
-						</div>
+								<hr />
 					</div>
+						
 				</div>
 				
 
