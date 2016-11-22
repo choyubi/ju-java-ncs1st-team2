@@ -1,5 +1,7 @@
 package com.ssc.service;
 
+import java.util.List;
+
 import com.ssc.model.Car;
 
 public interface CarService {
@@ -12,7 +14,7 @@ public interface CarService {
 	/**
 	 * 차 리스트 보기
 	 */
-	public Car selectCarList(Car car) throws Exception;
+	public List<Car> selectCarList(Car car) throws Exception;
 
 	/**
 	 * 차 추가
