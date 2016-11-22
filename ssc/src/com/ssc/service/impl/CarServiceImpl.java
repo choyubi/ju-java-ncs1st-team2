@@ -89,7 +89,7 @@ public class CarServiceImpl implements CarService{
 	@Override
 	public void deleteCar(Car car) throws Exception {
 		try{
-			sqlSession.delete("CarMapper.deletecar", car);	
+			sqlSession.delete("CarMapper.deleteCar", car);	
 		} catch(NullPointerException e){
 			sqlSession.rollback();
 			throw new Exception("일치하는 차량이 없습니다.");
