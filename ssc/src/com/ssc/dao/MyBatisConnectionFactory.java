@@ -20,6 +20,7 @@ public class MyBatisConnectionFactory {
 
     // ㅎㅎㅎㅎㅎㅎ
     // Hello World
+    /// sadfasdfsdf
 
     /** XML에 명시된 접속 정보를 읽어들인다. */
     static{
