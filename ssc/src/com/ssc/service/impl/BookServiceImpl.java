@@ -12,6 +12,7 @@ public class BookServiceImpl implements BookService{
 		return null;
 	}
 
+	/** 예약 조회 리스트 */
 	@Override
 	public Book selectBookList(Book book) throws Exception {
 		// TODO Auto-generated method stub
