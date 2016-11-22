@@ -5,6 +5,7 @@ import com.ssc.service.BookService;
 
 public class BookServiceImpl implements BookService{
 
+    /** 예약 상세조회 */
 	@Override
 	public Book selectBook(Book book) throws Exception {
 		// TODO Auto-generated method stub
