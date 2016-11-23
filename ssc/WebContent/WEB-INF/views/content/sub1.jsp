@@ -7,7 +7,34 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/views/inc/head.jsp"%>
+<!--스타일 시트 -->
+<style type="text/css">
 
+/* 갤러리 영역 박스
+ * -------------------------------------- */
+#gallery {
+	width: 730px;
+	margin: auto;
+}
+
+/* 이미지는 가득 채움
+ * -------------------------------------- */
+#gallery .thumb img {
+	width: 25%;
+	position: relative;
+	right: 140px;
+}
+
+/* 갤러리 텍스트 위치
+* --------------------------------------- */
+#gallery .text {
+	display: block;
+	width: auto;
+	position: relative;
+	left: 60px;
+	bottom: 120px;
+}
+</style>
 </head>
 
 <body>
