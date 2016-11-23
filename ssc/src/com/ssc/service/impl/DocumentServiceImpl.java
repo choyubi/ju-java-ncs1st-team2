@@ -103,7 +103,7 @@ public class DocumentServiceImpl implements DocumentService {
 		List<Document> result = null;
 
 		try {
-			result = sqlSession.selectList("DocumentMapper.selectList", document);
+			result = sqlSession.selectList("DocumentMapper.selectDocumentList", document);
 			if (result == null) {
 				throw new NullPointerException();
 			}
