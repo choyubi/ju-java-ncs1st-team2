@@ -20,5 +20,6 @@
 	<!-- 실행할 SQL문을 정의한 Mapper XML의 경로를 지정한다. -->
 	<mappers>
 		<mapper resource="com/ssc/mapper/ZoneMapper.xml" />
+		<mapper resource="com/ssc/mapper/DocumentMapper.xml" />
 	</mappers>
 </configuration>
