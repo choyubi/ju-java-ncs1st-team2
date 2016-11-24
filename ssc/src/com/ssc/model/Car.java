@@ -6,6 +6,13 @@ public class Car {
 	private String carKind;
 	private int carPay;
 	private int zoneNum;
+	private String zoneName;
+	public String getZoneName() {
+	    return zoneName;
+	}
+	public void setZoneName(String zoneName) {
+	    this.zoneName = zoneName;
+	}
 	public int getId() {
 		return id;
 	}
@@ -38,9 +45,10 @@ public class Car {
 	}
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", carName=" + carName + ", carKind=" + carKind + ", carPay=" + carPay + ", zoneNum="
-				+ zoneNum + "]";
+	    return "Car [id=" + id + ", carName=" + carName + ", carKind=" + carKind + ", carPay=" + carPay
+		    + ", zoneNum=" + zoneNum + ", zoneName=" + zoneName + "]";
 	}
+	
 	
 	
 }
