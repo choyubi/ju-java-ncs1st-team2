@@ -24,6 +24,91 @@
 		<result property="licNum" column="lic_num"/>
 				
 	</resultMap>
+	
+	<!-- 아이디 중복검사를 수행한다. -->
+	<select id="selectUserIdCount" parameterType="com.ssc.model.User"
+	resultType="int">
+		SELECT count(id) FROM User WHERE user_id=#{userId}
+	</select>
+	
+	<!-- 이메일 중복검사를 수행한다. -->
+	<select id="selectEmailCount" parameterType="com.ssc.model.User"
+	resultType="int">
+		SELECT count(id) FROM User WHERE email=#{email}
+	</select>
+	
+	<!-- 회원정보를 저장한다. : 가입  -->
+	<insert id="insertUser" parameterType="com.ssc.model.User"
+	useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO User(
+			name, user_id, user_pw, addr1, addr2, tel, email, gender, email_yn, use_area,
+			reg_date, edit_date, profile_img, lic_num
+			)VALUES(
+				#{name}, #{userId}, password(#{userPw}), #{addr1}, #{addr2}, #{tel}, #{gender}, #{emailYn}, 
+				now(), now(), #{profileImg}, #{licNum}
+			)
+	</insert>
+	
+	<!--아이디와 비밀번호가 일치하는 회원정보를 조회한다.-->
+	<select id="selectLoginInfo" parameterType="com.ssc.model.User"
+	resultMap="User">
+		SELECT
+			user_id, user_Pw, name, addr1, addr2, tel, email, 
+			gender, email_yn, use_area, reg_date, edit_date, profile_img, lic_num
+		FROM user
+			WHERE user_id=#{userId} AND user_pw=password(#{userPw})
+			ORDER BY id DESC
+			LIMIT 0,1
+	</select>
+	
+	<!-- 비밀번호 재발급 : 이메일주소가 일치하는 비밀번호를 변경한다. -->
+	<update id="updateUserPasswordByEmail" parameterType="com.ssc.model.User">
+		UPDATE user SET user_pw=password(#{userPw}), edit_date=now()
+		WHERE email=#{email};
+	</update>
+	
+	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
+	<select id="selectMemberPasswordCount" parameterType="com.ssc.model.User" resultType="int">
+		SELECT count(id) FROM User
+		WHERE id=#{id} AND user_pw=password(#{userPw})
+	</select>
+	
+	<!-- 회원정보를 삭제한다. : 탈퇴 -->
+	<delete id="deleteUser" parameterType="com.ssc.model.User">
+		DELETE FROM user WHERE id=#{id};
+	</delete>
+	
+	<!-- 회원정보를 변경한다. -->
+	<update id="updateUser" parameterType="com.ssc.model.User">
+		UPDATE user SET
+			name=#{name}, user_pw=#{user_pw}, addr1=#{addr1}, addr2=#{addr2}, 
+			tel=#{tel}, email=#{email}, gender=#{gender}, email_yn=#{email_yn}
+			, use_area=#{use_area}, reg_date=now() , edit_date=now() , profile_img=#{profile_img}, lic_num=#{lic_num}
+			
+			<if test="newUserPw != null and newUserPw !=''">
+				,user_pw=password(#{newUserPw})
+			</if>
+			
+			<choose>
+				<when test="profileImg == ''">
+					, profile_img=null
+				</when>
+				<when test="profileImg != null">
+					,profile_img=#{profileImg}
+				</when>
+			</choose>
+			
+			WHERE id=#{id}
+	</update>
+	
+	<!-- 일련번호에 의한 회원정보 조회 -->
+	<select id="selectUser" parameterType="com.ssc.model.User">
+		resultMap="user">
+		id,name,user_id,user_pw,email,gender,addr1,addr2,
+		tel,email_yn,user_area,reg_date,edit_date,profile_img,lic_num
+		WHERE id=#{id}
+		</select> 
+	
 </mapper>
 
 
