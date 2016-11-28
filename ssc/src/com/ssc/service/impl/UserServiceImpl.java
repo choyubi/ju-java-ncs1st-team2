@@ -52,14 +52,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override // 아이디 이메일 중복검사 예외처리
-	public void insertMember(User user) throws Exception {
+	public void insertUser(User user) throws Exception {
 		selectUserIdCount(user);
 		selectEmailCount(user);
 
 		// 데이터 저장처리 = 가입
 		// not null 로 설정된 값이 설정되지 않았다면 예외 발생됨.
 		try {
-			int result = sqlSession.insert("UserMapper.insertMember", user);
+			int result = sqlSession.insert("UserMapper.insertUser", user);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
@@ -95,9 +95,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override // 비번,이메일 수정
-	public void updateMemberPasswordByEmail(User user) throws Exception {
+	public void updateUserPasswordByEmail(User user) throws Exception {
 		try {
-			int result = sqlSession.update("UserMapper.updateMemberPasswordByEmail", user);
+			int result = sqlSession.update("UserMapper.updateUserPasswordByEmail", user);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
@@ -115,9 +115,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override // 회원번호,비밀번호 일치 예외처리
-	public void selectMemberPasswordCount(User user) throws Exception {
+	public void selectUserPasswordCount(User user) throws Exception {
 		try {
-			int result = sqlSession.selectOne("UserMapper.selectMemberPasswordCount",user);
+			int result = sqlSession.selectOne("UserMapper.selectUserPasswordCount",user);
 			
 			if(result == 0) {
 				throw new NullPointerException();
@@ -132,9 +132,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override // 삭제예외처리
-	public void deleteMember(User user) throws Exception {
+	public void deleteUser(User user) throws Exception {
 		try {
-			int result = sqlSession.delete("UserMapper.deleteMember",user);
+			int result = sqlSession.delete("UserMapper.deleteUser",user);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
@@ -152,9 +152,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override // 회원정보 수정
-	public void updateMember(User user) throws Exception {
+	public void updateUser(User user) throws Exception {
 		try {
-			int result = sqlSession.update("UserMapper.updateMember",user);
+			int result = sqlSession.update("UserMapper.updateUser",user);
 			if (result == 0) {
 				throw new NullPointerException();
 			}
@@ -172,10 +172,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override // 회원검색 예외처리
-	public User selectMember(User user) throws Exception {
+	public User selectUser(User user) throws Exception {
 		User result = null;
 		try {
-			result = sqlSession.selectOne("UserMapper.selectMember",user);
+			result = sqlSession.selectOne("UserMapper.selectUser",user);
 			if (result == null) {
 				throw new NullPointerException();
 			}

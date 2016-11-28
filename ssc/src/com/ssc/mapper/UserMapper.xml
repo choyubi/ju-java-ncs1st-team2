@@ -51,7 +51,7 @@
 	
 	<!--아이디와 비밀번호가 일치하는 회원정보를 조회한다.-->
 	<select id="selectLoginInfo" parameterType="com.ssc.model.User"
-	resultMap="User">
+	resultMap="user">
 		SELECT
 			user_id, user_Pw, name, addr1, addr2, tel, email, 
 			gender, email_yn, use_area, reg_date, edit_date, profile_img, lic_num
@@ -68,7 +68,7 @@
 	</update>
 	
 	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
-	<select id="selectMemberPasswordCount" parameterType="com.ssc.model.User" resultType="int">
+	<select id="selectUserPasswordCount" parameterType="com.ssc.model.User" resultType="int">
 		SELECT count(id) FROM User
 		WHERE id=#{id} AND user_pw=password(#{userPw})
 	</select>
@@ -102,7 +102,7 @@
 	</update>
 	
 	<!-- 일련번호에 의한 회원정보 조회 -->
-	<select id="selectUser" parameterType="com.ssc.model.User">
+	<select id="selectUser" parameterType="com.ssc.model.User"
 		resultMap="user">
 		id,name,user_id,user_pw,email,gender,addr1,addr2,
 		tel,email_yn,user_area,reg_date,edit_date,profile_img,lic_num

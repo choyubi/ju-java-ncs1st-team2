@@ -22,7 +22,7 @@ public interface UserService {
 	 * @param member - 일렬번호, 가입일시, 변경일시를 제외한 모든 정보
 	 * @throws Exception
 	 */
-	public void insertMember(User user) throws Exception;
+	public void insertUser(User user) throws Exception;
 	/**
 	 * 로그인하기
 	 * @param member
@@ -35,7 +35,7 @@ public interface UserService {
 	 * @param member - 이메일주소, 비밀번호
 	 * @throws Exception
 	 */
-	public void updateMemberPasswordByEmail(User user) throws Exception;
+	public void updateUserPasswordByEmail(User user) throws Exception;
 
 	
 	/**
@@ -43,14 +43,14 @@ public interface UserService {
 	 * @param member
 	 * @throws Exception
 	 */
-	public void selectMemberPasswordCount(User user) throws Exception;
+	public void selectUserPasswordCount(User user) throws Exception;
 	
 	/**
 	 * 회원탈퇴
 	 * @param member - 회원번호, 비밀번호
 	 * @throws Exception
 	 */
-	public void deleteMember(User user) throws Exception;
+	public void deleteUser(User user) throws Exception;
 	
 
 	
@@ -59,13 +59,13 @@ public interface UserService {
 	 * @param member
 	 * @throws Exception
 	 */
-	public void updateMember(User user) throws Exception;
+	public void updateUser(User user) throws Exception;
 	/**
 	 * 일련번호에 의한 회원정보 조회
 	 * @param member
 	 * @throws Exception
 	 */
-	public User selectMember(User user) throws Exception;
+	public User selectUser(User user) throws Exception;
 	
 	
 	/**
