@@ -19,7 +19,12 @@
 	
 	<!-- 실행할 SQL문을 정의한 Mapper XML의 경로를 지정한다. -->
 	<mappers>
-		<mapper resource="com/ssc/mapper/ZoneMapper.xml" />
+		<mapper resource="com/ssc/mapper/BookMapper.xml" />
+		<mapper resource="com/ssc/mapper/CarMapper.xml" />
+		<mapper resource="com/ssc/mapper/CommentMapper.xml" />
 		<mapper resource="com/ssc/mapper/DocumentMapper.xml" />
+		<mapper resource="com/ssc/mapper/FileMapper.xml" />
+		<mapper resource="com/ssc/mapper/UserMapper.xml" />
+		<mapper resource="com/ssc/mapper/ZoneMapper.xml" />
 	</mappers>
 </configuration>

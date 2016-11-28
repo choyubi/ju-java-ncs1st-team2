@@ -22,10 +22,11 @@
     </select>
     
     <!-- 존 상세 조회 -->
-    <select id="selectZoneList" parameterType="com.ssc.model.Zone" resultMap="zone">
+    <select id="selectZone" parameterType="com.ssc.model.Zone" resultMap="zone">
     	SELECT num,  zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
     	WHERE num=#{num}
     </select>
+    
     <!-- 존 추가 -->
     <insert id="insertZone" parameterType="com.ssc.model.Zone"
     useGeneratedKeys="true" keyProperty="num">
