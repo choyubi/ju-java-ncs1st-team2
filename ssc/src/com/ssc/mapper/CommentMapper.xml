@@ -19,28 +19,63 @@
 		<result property="userId" column="user_id" />
 	</resultMap>
 	
-<!-- 게시물마다 댓글..추가 어렵다 -->
-<insert id="insertCommon" parameterType="com.ssc.model.Comment">
-	INSERT INTO comment(
-		writer_name, writer_pw, email, content, reg_date, edit_date, ip_address, document_id, user_id
-	) VALUES (
-			#{writerName},#{writerPw},#{email},#{content},now(),now(),#{ipAddress},#{documentId},#{userId}		
+	<!-- 덧글 정보 저장하기 -->
+	<insert id="insertComment" parameterType="com.ssc.model.Comment" 
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO bbs_comment (
+			writer_name, writer_pw, email, content, reg_date, edit_date, ip_address, document_id, 
+			user_id
+		) VALUES (
+			#{writerName}, #{email}, #{content}, now(), now(), #{ipAddress}, #{documentId}, 
+			
 			<choose>
 				<when test="userId == 0">
 					null, password(#{writerPw})
 				</when>
 				<otherwise>
-					#{userId},#{writerPw}
+					#{userId}, #{writerPw}
 				</otherwise>
 			</choose>
 		)
-</insert>
+	</insert>
 
 
-<!-- 어떻게 수정해야될까.. -->
-<!-- 삭제도 모르겠다. -->
-<!-- 게시물마다 댓글 셀렉트 -->
+	<!-- 덧글 정보 수정하기 -->
+	<update id="updateComment" parameterType="com.ssc.model.Comment">
+		UPDATE comment SET
+			writer_name=#{writerName},
+			email=#{email},
+			content=#{content},
+			ip_address=#{ipAddress},
+			edit_date=now()
+		WHERE id=#{id}
+	</update>
 
+	<!-- 덧글 삭제 하기 -->
+	<delete id="deleteComment" parameterType="com.ssc.model.Comment">
+		DELETE FROM comment WHERE id=#{id}
+	</delete>
+	<!-- 덧글 하나에 대한 정보를 조회한다. -->
+	<select id="selectComment" parameterType="com.ssc.model.Comment" 
+		resultMap="comment">
+		SELECT id, writer_name, email, content, 
+			   DATE_FORMAT(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, 
+			   DATE_FORMAT(edit_date, '%Y-%m-%d %H:%i:%s') as edit_date, 
+			   ip_address, document_id, user_id
+		FROM   comment
+		WHERE  id=#{id}
+	</select>
+	<!-- 하나의 게시물에 속한 모든 덧글 목록을 조회한다. -->
+	<select id="selectCommentList" parameterType="com.ssc.model.Comment" 
+		resultMap="comment">
+		SELECT   id, writer_name, email, content, 
+			     DATE_FORMAT(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, 
+			     DATE_FORMAT(edit_date, '%Y-%m-%d %H:%i:%s') as edit_date, 
+			     ip_address, user_id, document_id
+		FROM     comment
+		WHERE    document_id=#{documentId}
+		ORDER BY id ASC
+	</select>
 </mapper>
 
 
