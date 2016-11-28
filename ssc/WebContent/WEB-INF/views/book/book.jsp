@@ -28,7 +28,8 @@
 				<script type="text/javascript"
 					src="http://apis.daum.net/maps/maps3.js?apikey=90fb1d3654482b09c1d9266d05b2e037"></script>
 				<script>
-					var container = document.getElementById('map');
+// 					var container = document.getElementById('map');
+					var container = $("#id").append();
 					var options = {
 						center : new daum.maps.LatLng(33.450701, 126.570667),
 						level : 3
@@ -48,7 +49,7 @@
 
 
 	<hr>
-
+	
 	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
 
 </body>
