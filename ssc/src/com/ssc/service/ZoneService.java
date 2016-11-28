@@ -1,5 +1,7 @@
 package com.ssc.service;
 
+import java.util.List;
+
 import com.ssc.model.Zone;
 
 public interface ZoneService {
@@ -12,7 +14,7 @@ public interface ZoneService {
 	/**
 	 * 존 리스트 보기
 	 */
-	public Zone selectZoneList(Zone zone) throws Exception;
+	public List<Zone> selectZoneList(Zone zone) throws Exception;
 
 	/**
 	 * 존 추가

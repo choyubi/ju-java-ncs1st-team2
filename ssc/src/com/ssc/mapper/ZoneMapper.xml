@@ -16,9 +16,40 @@
 
 	</resultMap>
 	
+	<!-- 존 전체 조회 -->
    <select id="selectZoneList" parameterType="com.ssc.model.Zone" resultMap="zone">
     	SELECT num,  zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
     </select>
+    
+    <!-- 존 상세 조회 -->
+    <select id="selectZoneList" parameterType="com.ssc.model.Zone" resultMap="zone">
+    	SELECT num,  zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
+    	WHERE num=#{num}
+    </select>
+    <!-- 존 추가 -->
+    <insert id="insertZone" parameterType="com.ssc.model.Zone"
+    useGeneratedKeys="true" keyProperty="num">
+    	INSERT INTO zone(
+    		zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short
+    		
+    	)VALUES(
+    		#{zoneName}, #{zoneAddr}, #{zoneLat}, #{zoneLng}, #{zoneRegion1Short}
+    	)
+    </insert>
+    <!-- 존 수정 -->
+    <update id="updateZone" parameterType="com.ssc.model.Zone">
+    	UPDATE zone SET
+    		zone_name=#{zoneName},
+    		zone_addr=#{zoneAddr},
+    		zone_lat=#{zoneLat},
+    		zone_lng=#{zoneLng},
+    		zone_region1_short=#{zoneRegion1Short}
+    	WHERE num=#{num}
+    </update>
+    <!-- 존 삭제 -->
+    <delete id="deleteZone" parameterType="com.ssc.model.Zone">
+    	DELETE FROM zone WHERE num=#{num}
+    </delete>
 </mapper>
 
 

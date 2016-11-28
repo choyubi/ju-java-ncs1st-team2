@@ -39,18 +39,21 @@
 	</delete>
 	
 	<!-- 차 전체 조회 -->
-	<select id="selectCarList" parameterType="com.ssc.model.Car" resultMap="car">
-		SELECT
-			id, car_name, car_kind, car_pay, zone_num, zone_name
-		FROM car, zone
+	<select id="selectCarList" parameterType="com.ssc.model.Car" resultMap="car">		
+		SELECT id, car_name, car_kind, car_pay, zone_num, zone_name
+		FROM car
+        INNER JOIN zone
+        ON zone.num = car.zone_num
+		WHERE zone_num=#{zoneNum}
 	</select>
 	
 	<!-- 차 상세 조회 -->
 	<select id="selectCar" parameterType="com.ssc.model.Car" resultMap="car">
-		SELECT
-			id, car_name, car_kind, car_pay, zone_num, zone_name
-		FROM car, zone
-		WHERE car_name=#{carName} OR car_kind=#{carKind}
+		SELECT id, car_name, car_kind, car_pay, zone_num, zone_name
+		FROM car
+        INNER JOIN zone
+        ON zone.num = car.zone_num
+		WHERE zone_num=#{zoneNum} AND id=#{id} 
 	</select>
 </mapper>
 
