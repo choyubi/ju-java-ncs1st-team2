@@ -1,19 +1,23 @@
 package com.ssc.service;
 
+import java.util.List;
+
 import com.ssc.model.Comment;
 
 public interface CommentService {
 	
 	/** 댓글 추가 */
-	public void insertCommon(Comment commet) throws Exception;
+	public void insertComment(Comment comment) throws Exception;
 	
 	/** 댓글 수정 */
-	public void updateCommon(Comment comment) throws Exception;
+	public void updateComment(Comment comment) throws Exception;
 
 	/** 댓글 삭제 */
-	public void deleteCommon(Comment comment) throws Exception;
+	public void deleteComment(Comment comment) throws Exception;
 
-	/** 댓글 읽기 */
-	public int selectCommon(Comment comment) throws Exception;
+	/** 하나의 댓글 읽기 */
+	public Comment selectComment(Comment comment) throws Exception;
 	
+	/** 하나의 게시물에 속한 여러개의 댓글 읽기 */
+	public List<Comment> selectCommentList(Comment comment) throws Exception;
 }
