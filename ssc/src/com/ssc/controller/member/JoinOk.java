@@ -1,4 +1,4 @@
-package com.ssc.controller.bbs;
+package com.ssc.controller.member;
 
 import java.io.IOException;
 import java.util.List;
@@ -62,6 +62,7 @@ public class JoinOk extends BaseController {
 		Map<String, String> paramMap = upload.getParamMap();
 		String userId = paramMap.get("user_id");
 		String userPw = paramMap.get("user_pw");
+		String userPwRe = paramMap.get("user_pw_re"); 
 		String name = paramMap.get("name");
 		String addr1 = paramMap.get("addr1");
 		String addr2 = paramMap.get("addr2");
@@ -72,7 +73,7 @@ public class JoinOk extends BaseController {
 		String use_area = paramMap.get("use_area");
 		String profile_img = paramMap.get("profile_img");
 		String lic_num = paramMap.get("lic_num");
-
+		
 		// 전달받은 파라미터는 값의 정상여부 확인을 위해서 로그로 확인
 		logger.debug("userId=" + userId);
 		logger.debug("userPw=" + userPw);
@@ -86,7 +87,8 @@ public class JoinOk extends BaseController {
 		logger.debug("use_area=" + use_area);
 		logger.debug("profile_img=" + profile_img);
 		logger.debug("lic_num=" + lic_num);
-
+		logger.debug("user_Pw_Re=" + userPwRe);
+		
 		/** (5) 입력값의 유효성 검사 */
 		// 아이디 검사
 		if (!regex.isValue(userId)) {
@@ -122,6 +124,13 @@ public class JoinOk extends BaseController {
 
 		if (userPw.length() > 20) {
 			web.redirect(null, "비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
+			return null;
+		}
+		
+		// 비밀번호 확인
+		if(!userPwRe.equals(userPwRe)) {
+			sqlSession.close();
+			web.redirect(null, "비밀번호 확인이 잘못되었습니다.");
 			return null;
 		}
 
