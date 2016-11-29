@@ -10,6 +10,7 @@ public class FileInfo {
     private String fileName;  // 서버상의 파일 이름
     private String contentType;  // 파일의 형식
     private long fileSize;       // 파일의 용량
+    
     public String getOrginName() {
         return orginName;
     }

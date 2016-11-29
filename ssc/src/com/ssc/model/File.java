@@ -6,7 +6,7 @@ public class File {
 	private String fileDir;
 	private String fileName;
 	private String contentType;
-	private String fileSize;
+	private long fileSize;
 	private String regDate;
 	private String editDate;
 	private int documentId;
@@ -40,10 +40,10 @@ public class File {
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	public String getFileSize() {
+	public long getFileSize() {
 		return fileSize;
 	}
-	public void setFileSize(String fileSize) {
+	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}
 	public String getRegDate() {
@@ -70,6 +70,7 @@ public class File {
 				+ ", contentType=" + contentType + ", fileSize=" + fileSize + ", regDate=" + regDate + ", editDate="
 				+ editDate + ", documentId=" + documentId + "]";
 	}
+	
 	
 	
 }
