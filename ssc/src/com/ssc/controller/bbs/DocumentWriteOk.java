@@ -199,7 +199,7 @@ public class DocumentWriteOk extends BaseController {
 				file.setFileSize(info.getFileSize());
 				
 				// 저장처리
-				FileService.insertFile(file);
+				fileService.insertFile(file);
 			}
 		} catch (Exception e) {
 			web.redirect(null, e.getLocalizedMessage());
