@@ -18,12 +18,22 @@
 	<div class="main" id="c">
 		<div class="container" id="b">
 			<div class="col-sm-2" id="sidebar" role="navigation">
-				<div class="list-group">
+			<c:choose>
+				<c:when test="${category=='gallery' || category=='review'}">
+					<div class="list-group">		
+						<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=gallery" class="list-group-item"><strong>추천지</strong></a>
+						<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=review" class="list-group-item"><strong>이용후기</strong></a>
+					</div>	
+				</c:when>
+				<c:otherwise>
+					<div class="list-group">
 					<a href="center1.html" class="list-group-item"><strong>공지사항</strong></a>
-					<a href="center2.html" class="list-group-item"><strong>자주묻는
-							질문</strong></a> <a href="center3.html" class="list-group-item"><strong>1:1
-							문의</strong></a>
-				</div>
+					<a href="center2.html" class="list-group-item"><strong>자주묻는 질문</strong></a> 
+					<a href="center3.html" class="list-group-item"><strong>1:1 문의</strong></a>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
 			</div>
 			<!--탭 bar 끝-->
 
