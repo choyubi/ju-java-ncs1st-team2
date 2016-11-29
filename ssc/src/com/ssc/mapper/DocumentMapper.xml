@@ -26,16 +26,16 @@
 		useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO document(
 			category, writer_name, email, subject, content, hit, reg_date, edit_date, ip_address,
-			member_id, writer_pw
+			user_id, writer_pw
 		)VALUES(
 			#{category}, #{writerName}, #{email}, #{subject}, #{content}, 0, now(), now(), #{ipAddress},
 			
 			<choose>
-				<when test="memberId == 0">
+				<when test="userId == 0">
 					null, password(#{writerPw})
 				</when>
 				<otherwise>
-					#{memberId}, #{writerPw}
+					#{userId}, #{writerPw}
 				</otherwise>
 			</choose>		
 		)
@@ -48,7 +48,7 @@
 		SELECT id, category, writer_name, writer_pw, email, subject, content, hit,
 			DATE_FORMAT(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date,
 			DATE_FORMAT(edit_date, '%Y-%m-%d %H:%i:%s') as edit_date,
-			ip_address, member_id
+			ip_address, user_id
 		FROM document
 		WHERE category=#{category} AND id=#{id}		
 	</select>
@@ -60,7 +60,7 @@
 		SELECT id, category, writer_name, writer_pw, email, subject, content, hit,
 			DATE_FORMAT(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date,
 			DATE_FORMAT(edit_date, '%Y-%m-%d %H:%i:%s') as edit_date,
-			ip_address, member_id
+			ip_address, user_id
 		FROM document
 		WHERE category=#{category} AND id &lt; #{id}
 		ORDER By id DESC
@@ -75,7 +75,7 @@
 		SELECT id, category, writer_name, writer_pw, email, subject, content, hit,
 			DATE_FORMAT(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date,
 			DATE_FORMAT(edit_date, '%Y-%m-%d %H:%i:%s') as edit_date,
-			ip_address, member_id
+			ip_address, user_id
 		FROM document
 		WHERE category=#{category} AND id &gt; #{id}
 		ORDER By id ASC
@@ -142,7 +142,7 @@
 	<!-- 자신의 게시물인지 검사한다 -->
 	<select id="selectDocumentCountByMemberId" parameterType="com.ssc.model.Document" resultType="int">
 		SELECT COUNT(id) FROM document
-		WHERE category=#{category} AND id=#{id} AND member_id=#{memberId}
+		WHERE category=#{category} AND id=#{id} AND user_id=#{userId}
 	</select>
 	
 	<!-- 비밀번호를 검사한다. -->
@@ -163,9 +163,9 @@
 	
 	
 	
-	<!-- 특정 member_id값을 가진 게시글을 삭제한다. -->
+	<!-- 특정 user_id값을 가진 게시글을 삭제한다. -->
 	<delete id="remove_member_document"  parameterType="com.ssc.model.Document">
-		DELETE FROM document WHERE member_id=#{memberId}
+		DELETE FROM document WHERE user_id=#{userId}
 	</delete>	
 	
 	
