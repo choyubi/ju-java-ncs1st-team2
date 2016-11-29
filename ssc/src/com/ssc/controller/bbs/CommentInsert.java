@@ -22,7 +22,7 @@ import com.ssc.model.Comment;
 import com.ssc.model.User;
 import com.ssc.service.CommentService;
 
-@WebServlet("/commentInsert")
+@WebServlet("/bbs/comment_insert.do")
 public class CommentInsert extends BaseController {
 
     private static final long serialVersionUID = -5942065365179911350L;

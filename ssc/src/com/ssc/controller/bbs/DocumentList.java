@@ -21,8 +21,6 @@ import com.ssc.model.Document;
 import com.ssc.service.DocumentService;
 import com.ssc.service.impl.DocumentServiceImpl;
 
-
-
 @WebServlet("/bbs/document_list.do")
 public class DocumentList extends BaseController {
 	private static final long serialVersionUID = 5236569087946278729L;
