@@ -98,13 +98,16 @@ public class DocumentList extends BaseController {
 		}finally{
 			sqlSession.close();
 		}
-		
+		System.out.println("11");
 		//조회결과가 존재할 경우 --> 갤러리라면 이미지 경로를 썸네일로 교체
-		if((document.isGallery() || document.isGallery()) && documentList != null){
+		if((document.isGallery() || document.isReview()) && documentList != null){
+			System.out.println("22");
 			for(int i = 0; i<documentList.size(); i++){
 				Document item = documentList.get(i);
 				String imagePath = item.getImagePath();
+				System.out.println(imagePath);
 				if(imagePath != null){
+					System.out.println("33");
 					String thumbPath = upload.createThumbnail(imagePath, 480, 320, true);
 					//글 목록 걸렉션 내의 Beans 객체가 갖는 이미지 경로를 썸네일로 변경한다.
 					item.setImagePath(thumbPath);

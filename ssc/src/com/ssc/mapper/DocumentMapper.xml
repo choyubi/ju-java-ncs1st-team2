@@ -19,6 +19,7 @@
 		<result property="editDate" column="edit_date" />
 		<result property="ipAddress" column="ip_address" />
 		<result property="userId" column="user_id" />
+		<result property="imagePath" column="image_path" />
 	</resultMap>
 	
 	<!-- 게시글 정보 저장하기 -->
@@ -92,7 +93,7 @@
 		SELECT id, category, writer_name, subject, hit,
 				DATE_FORMAT(reg_date, '%Y-%m-%d') as reg_date
 		
-		<if test="gallery == true">
+		<if test="review == true || gallery == true">
 			,(SELECT concat(file_dir,'/',file_name) FROM file
 			  WHERE document_id=document.id
 			  		AND
