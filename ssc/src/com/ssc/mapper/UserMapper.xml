@@ -108,6 +108,7 @@
 		id,name,u_id,u_pw,email,gender,postcode,addr1,addr2,
 		tel,email_yn,use_area,reg_date,edit_date,profile_img,lic_num, DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate
 		FROM user
+		WHERE id=#{id}
 	</select> 
 	
 </mapper>
