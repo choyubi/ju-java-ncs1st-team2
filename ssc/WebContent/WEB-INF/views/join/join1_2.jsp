@@ -35,7 +35,7 @@
 								<input type="text" class="form-control" name="u_id" id="u_id" placeholder="아이디를 입력하세요.">
 							</div>
 							<div class="col-md-1">
-								<button class="btn btn-primary">아이디 중복확인</button>
+								<input type="button" value="아이디 중복 확인" class="btn btn-primary">
 							</div>
 						</div>
 						<!-- //아이디 입력양식 -->
@@ -265,7 +265,7 @@
 								<input type="text" class="form-control" name="lic_num" id="lic_num">
 							</div>
 							<div class="col-md-1">
-								<button class="btn btn-primary">중복여부 확인</button>
+								<input type="button" value="면허 중복 확인" class="btn btn-danger">
 							</div>
 						</div>
 
