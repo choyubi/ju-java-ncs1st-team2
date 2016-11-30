@@ -38,4 +38,17 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/daumPostCode.js"></script>
 
+<!-- Multi-colum -->
+<script type="text/javascript" src="${pageContext.request.contextPath }/plugins/multi-column/ie-row-fix-js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/plugins/multi-column/multi-columns-row.css" />
 
+
+<!-- handlebars -->
+<script src="${pageContext.request.contextPath}/plugins/handlebars/handlebars-v4.0.5.js"></script>
+
+<!-- ajax -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/ajax/ajax_helper.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/ajax/ajax_helper.js"></script>
+
+<!-- ajaxForm -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/ajax-form/jquery.form.min.js"></script>

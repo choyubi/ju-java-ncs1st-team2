@@ -103,7 +103,7 @@ public class LoginOk extends BaseController {
 		/** (9) 페이지 이동 */
 		String movePage = request.getHeader("referer");
 		if (movePage == null) {
-			movePage = web.getRootPath() + "/main.do";
+			movePage = web.getRootPath() + "/index.do";
 		}
 		
 		sqlSession.close();
