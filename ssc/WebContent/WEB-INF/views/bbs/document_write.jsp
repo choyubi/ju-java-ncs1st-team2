@@ -26,10 +26,10 @@
 					</div>	
 				</c:when>
 				<c:otherwise>
-					<div class="list-group">
-					<a href="center1.html" class="list-group-item"><strong>공지사항</strong></a>
-					<a href="center2.html" class="list-group-item"><strong>자주묻는 질문</strong></a> 
-					<a href="center3.html" class="list-group-item"><strong>1:1 문의</strong></a>
+					<div class="list-group">		
+						<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=notice" class="list-group-item"><strong>공지사항</strong></a>
+						<a href="${pageContext.request.contextPath}/center.do" class="list-group-item"><strong>자주묻는 질문</strong></a> 
+						<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=qna" class="list-group-item"><strong>1:1문의</strong></a>
 					</div>
 				</c:otherwise>
 			</c:choose>

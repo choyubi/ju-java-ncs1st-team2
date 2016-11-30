@@ -7,12 +7,26 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/views/inc/head.jsp"%>
+<style type="text/css">
+	/*게시물 항목 하나 */
+	.item{
+		padding: 0px 5px;
+	}
+	/*게시물 제목 */
+	.item h4{
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+	/*썸네일 이미지 크기 */
+	.img-responsive{
+		width:100%;
+	}
+</style>
 
 </head>
 
 <body>
 	<%@ include file="/WEB-INF/views/inc/topbar.jsp"%>
-
 
 	<!-- 내용영역 -->
 	<div class="main" id="c">
@@ -26,15 +40,15 @@
 			<!--탭 bar 끝-->
 
 			<div class="col-sm-10">
-
 				<div class="row"  id="c">
 						<div class="media">
 							<img src="${pageContext.request.contextPath}/img/bbs.png">
 						</div>
 					</div>
-
-
-					<!-- 글 목록 시작 -->
+	
+	<h1 class="page-header">${bbsName} - <small>글 목록</small></h1>
+	
+	<!-- 글 목록 시작 -->
 	<div class="row multi-columns-row">
 		<!-- 조회된 글이 있는 경우 시작 -->
 		<c:choose>
