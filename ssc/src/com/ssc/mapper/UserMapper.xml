@@ -82,16 +82,10 @@
 	<!-- 회원정보를 변경한다. -->
 	<update id="updateUser" parameterType="com.ssc.model.User">
 		UPDATE user SET
-<<<<<<< HEAD
-			name=#{name}, u_pw=#{uPw}, addr1=#{addr1}, addr2=#{addr2}, 
+			name=#{name}, u_pw=#{uPw}, postcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2}, 
 			tel=#{tel}, email=#{email}, gender=#{gender}, email_yn=#{emailYn}
 			, use_area=#{useArea}, reg_date=now() , edit_date=now() , profile_img=#{profileImg}, lic_num=#{licNum}, birthdate=#{birthdate}
-=======
-			name=#{name}, u_pw=#{u_pw}, postcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2}, 
-			tel=#{tel}, email=#{email}, gender=#{gender}, email_yn=#{email_yn}
-			, use_area=#{use_area}, reg_date=now() , edit_date=now() , profile_img=#{profile_img}, lic_num=#{lic_num}, birthdate=#{birthdate}
->>>>>>> branch 'master' of https://github.com/ITPAPER/ju-java-ncs1st-team2.git
-			
+
 			<if test="newUPw != null and newUPw !=''">
 				,u_pw=password(#{newUPw})
 			</if>
@@ -109,19 +103,12 @@
 	</update>
 	
 	<!-- 일련번호에 의한 회원정보 조회 -->
-	<select id="selectUser" parameterType="com.ssc.model.User"
-		resultMap="user">
-<<<<<<< HEAD
+	<select id="selectUser" parameterType="com.ssc.model.User" resultMap="user">
 		SELECT
 		id,name,u_id,u_pw,email,gender,postcode,addr1,addr2,
 		tel,email_yn,use_area,reg_date,edit_date,profile_img,lic_num, birthdate
 		FROM user
-=======
-		id,name,u_id,u_pw,email,gender,postcode,addr1,addr2,
-		tel,email_yn,user_area,reg_date,edit_date,profile_img,lic_num, birthdate
->>>>>>> branch 'master' of https://github.com/ITPAPER/ju-java-ncs1st-team2.git
-		WHERE id=#{id}
-		</select> 
+	</select> 
 	
 </mapper>
 
