@@ -295,15 +295,15 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label id="label" for="inlineCheckbox1" class="col-md-2 control-label"> 주 사용 지역 </label>
+							<label id="label" for="radio1" class="col-md-2 control-label"> 주 사용 지역 </label>
 							<div class="col-md-10">
-								<label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox1" value="option1">서울
-								</label> <label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox2" value="option2">인천/경기
-								</label> <label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox3" value="option3">대구/경북
-								</label> <label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox4" value="option4">부산/경남
-								</label> <label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox5" value="option5">대전/충남
-								</label> <label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox6" value="option6">광주/전라
-								</label> <label class="checkbox-inline"> <input type="checkbox" name="use_area" id="inlineCheckbox7" value="option7">제주
+								<label class="radio-inline"> <input type="radio" name="use_area" id="radio1" value="option1">서울
+								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio2" value="option2">인천/경기
+								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio3" value="option3">대구/경북
+								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio4" value="option4">부산/경남
+								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio5" value="option5">대전/충남
+								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio6" value="option6">광주/전라
+								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio7" value="option7">제주
 								</label>
 							</div>
 						</div>

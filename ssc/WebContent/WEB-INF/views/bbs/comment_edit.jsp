@@ -13,7 +13,7 @@
 	</div>
 	<div class="modal-body">
 		<!-- 자신의 글이 아닌 경우 -->
-		<c:if test="${comment.memberId != loginInfo.id }">
+		<c:if test="${comment.userId != loginInfo.id }">
 			<div class="form-group">
 				<input type="text"  name="writer_name" id="writer_name" class="form-control" 
 					placeholder="작성자" value="${comment.writerName}"/>
