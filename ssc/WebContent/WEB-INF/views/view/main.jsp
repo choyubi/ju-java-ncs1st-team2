@@ -188,12 +188,12 @@
 					<fieldset>
 						<legend><strong>로그인</strong></legend>		
 						<div class="form-group">
-							<label for="user_id">아이디</label>
-							<input type="text" name="user_id" id="user_id" class="form-control" placeholder="아이디를 입력하세요."/>							
+							<label for="u_id">아이디</label>
+							<input type="text" name="u_id" id="u_id" class="form-control" placeholder="아이디를 입력하세요."/>							
 						</div>
 						<div class="form-group">
-							<label for="user_pw">비밀번호</label>
-							<input type="password" name="user_pw" id="user_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
+							<label for="u_pw">비밀번호</label>
+							<input type="password" name="u_pw" id="u_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
 						</div>
 						<button type="submit" class="btn btn-warning">
 							로그인

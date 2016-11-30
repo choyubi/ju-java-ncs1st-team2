@@ -60,8 +60,8 @@ public class JoinOk extends BaseController {
 		}
 		// id, reg_date 회원가입날짜 , edit_date 회원정보수정날짜 제외 나머지 작성.
 		Map<String, String> paramMap = upload.getParamMap();
-		String userId = paramMap.get("user_id");
-		String userPw = paramMap.get("user_pw");
+		String uId = paramMap.get("u_id");
+		String uPw = paramMap.get("u_pw");
 		String userPwRe = paramMap.get("user_pw_re"); 
 		String name = paramMap.get("user_name");
 		String addr1 = paramMap.get("addr1");
@@ -79,8 +79,8 @@ public class JoinOk extends BaseController {
 		String birthdate = birthdate1 + "-" + birthdate2 + "-" + birthdate3;
 		
 		// 전달받은 파라미터는 값의 정상여부 확인을 위해서 로그로 확인
-		logger.debug("userId=" + userId);
-		logger.debug("userPw=" + userPw);
+		logger.debug("uId=" + uId);
+		logger.debug("uPw=" + uPw);
 		logger.debug("name=" + name);
 		logger.debug("addr1=" + addr1);
 		logger.debug("addr2=" + addr2);
@@ -95,38 +95,38 @@ public class JoinOk extends BaseController {
 		
 		/** (5) 입력값의 유효성 검사 */
 		// 아이디 검사
-		if (!regex.isValue(userId)) {
+		if (!regex.isValue(uId)) {
 			sqlSession.close();
 			web.redirect(null, "아이디를 입력하세요.");
 			return null;
 		}
 
-		if (!regex.isEngNum(userId)) {
+		if (!regex.isEngNum(uId)) {
 			sqlSession.close();
 			web.redirect(null, "아이디는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
 			return null;
 		}
 
-		if (userId.length() > 20) {
+		if (uId.length() > 20) {
 			sqlSession.close();
 			web.redirect(null, "아이디는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
 			return null;
 		}
 
 		// 비밀번호 검사
-		if (!regex.isValue(userPw)) {
+		if (!regex.isValue(uPw)) {
 			sqlSession.close();
 			web.redirect(null, "비밀번호를 입력하세요.");
 			return null;
 		}
 
-		if (!regex.isEngNum(userPw)) {
+		if (!regex.isEngNum(uPw)) {
 			sqlSession.close();
 			web.redirect(null, "비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
 			return null;
 		}
 
-		if (userPw.length() > 20) {
+		if (uPw.length() > 20) {
 			web.redirect(null, "비밀번호는 숫자와 영문의 조합으로 20자까지만 가능합니다.");
 			return null;
 		}
@@ -225,8 +225,8 @@ public class JoinOk extends BaseController {
 
 		/** (7) 전달받은 파라미터를 Beans 객체에 담는다. */
 		User user = new User();
-		user.setUserId(userId);
-		user.setUserPw(userPw);
+		user.setuId(uId);
+		user.setuPw(uPw);
 		user.setName(name);
 		user.setAddr1(addr1);
 		user.setAddr2(addr2);

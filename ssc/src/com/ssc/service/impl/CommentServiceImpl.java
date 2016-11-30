@@ -120,14 +120,14 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public int selectCommentCountByMemberId(Comment comment) throws Exception {
+	public int selectCommentCountByUserId(Comment comment) throws Exception {
 		int result = 0;
 
 		try {
 			// 자신의 덧글이 아닌 경우도 있으므로,
 			// 결과값이 0인 경우에 대한 예외를 발생시키지 않는다.
 			result = sqlSession.selectOne(
-					"CommentMapper.selectCommentCountByMemberId", comment);
+					"CommentMapper.selectCommentCountByUserId", comment);
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("덧글 수 조회에 실패했습니다.");
@@ -172,11 +172,11 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public void updateCommentMemberOut(Comment comment) throws Exception {
+	public void updateCommentUserOut(Comment comment) throws Exception {
 		try {
 			// 덧글을 작성한 적이 없는 회원도 있을 수 있기 때문에,
 			// NullPointerException을 발생시키지 않는다.
-			sqlSession.update("CommentMapper.updateCommentMemberOut", comment);
+			sqlSession.update("CommentMapper.updateCommentUserOut", comment);
 		} catch (Exception e) {
 			sqlSession.rollback();
 			logger.error(e.getLocalizedMessage());

@@ -40,7 +40,7 @@
 								<li><a href="loginpage.do">로그인</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="mypage.do">MyPage</a></li>
+								<li><a href="mypage1.do">MyPage</a></li>
 							</c:otherwise>
 						</c:choose>
 					</ul>

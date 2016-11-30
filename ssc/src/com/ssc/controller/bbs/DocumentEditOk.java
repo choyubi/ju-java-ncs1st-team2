@@ -122,7 +122,7 @@ public class DocumentEditOk extends BaseController {
 					//입력되지 않은 정보를 갱신
 					writerName = loginInfo.getName();
 					email = loginInfo.getEmail();
-					writerPw = loginInfo.getUserPw();
+					writerPw = loginInfo.getuPw();
 					userId = loginInfo.getId();
 				}
 			}catch(Exception e){

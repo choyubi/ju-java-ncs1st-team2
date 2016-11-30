@@ -184,6 +184,12 @@
 		WHERE id=#{id}
 	</update>
 	
+	<!-- 특정 회원과의 댓글 참조 해제하기 -->
+	<update id="updateDocumentUserOut" parameterType="com.ssc.model.Document">
+		UPDATE document
+		SET    user_id=NULL, edit_date=now()
+		WHERE  user_id=#{userId}
+	</update>
 	
 	
 </mapper>

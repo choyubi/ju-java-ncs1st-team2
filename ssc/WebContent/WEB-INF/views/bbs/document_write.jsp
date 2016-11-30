@@ -59,7 +59,7 @@
 							</div>
 							<!-- 비밀번호 -->
 							<div class="form-group">
-								<label for="wrtier_pw" class="col-sm-2 contril-label">비밀번호</label>
+								<label for="wrtier_pw" class="col-sm-2 control-label">비밀번호</label>
 								<div class="col-sm-10">
 									<input type="password" class="form-control" id="writer_pw"
 										name="writer_pw" />

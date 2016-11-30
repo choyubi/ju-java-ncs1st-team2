@@ -8,8 +8,8 @@
 	<resultMap type="com.ssc.model.User" id="user">
 		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
 		<result property="id" column="id"/>
-		<result property="userId" column="user_id"/>
-		<result property="userPw" column="user_pw"/>
+		<result property="uId" column="u_id"/>
+		<result property="uPw" column="u_pw"/>
 		<result property="name" column="name"/>
 		<result property="addr1" column="addr1"/>
 		<result property="addr2" column="addr2"/>
@@ -27,9 +27,9 @@
 	</resultMap>
 	
 	<!-- 아이디 중복검사를 수행한다. -->
-	<select id="selectUserIdCount" parameterType="com.ssc.model.User"
+	<select id="selectuIdCount" parameterType="com.ssc.model.User"
 	resultType="int">
-		SELECT count(id) FROM User WHERE user_id=#{userId}
+		SELECT count(id) FROM User WHERE u_id=#{uId}
 	</select>
 	
 	<!-- 이메일 중복검사를 수행한다. -->
@@ -42,10 +42,10 @@
 	<insert id="insertUser" parameterType="com.ssc.model.User"
 	useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO User(
-			name, user_id, user_pw, addr1, addr2, tel, email, gender, email_yn, use_area,
+			name, u_id, u_pw, addr1, addr2, tel, email, gender, email_yn, use_area,
 			reg_date, edit_date, profile_img, lic_num, birthdate
 			)VALUES(
-				#{name}, #{userId}, password(#{userPw}), #{addr1}, #{addr2}, #{tel}, #{email}, #{gender}, #{emailYn}, 
+				#{name}, #{uId}, password(#{uPw}), #{addr1}, #{addr2}, #{tel}, #{email}, #{gender}, #{emailYn}, 
 				#{useArea}, now(), now(), #{profileImg}, #{licNum}, #{birthdate}
 			)
 	</insert>
@@ -54,24 +54,24 @@
 	<select id="selectLoginInfo" parameterType="com.ssc.model.User"
 	resultMap="user">
 		SELECT
-			user_id, user_pw, name, addr1, addr2, tel, email, 
+			id, u_id, u_pw, name, addr1, addr2, tel, email, 
 			gender, email_yn, use_area, reg_date, edit_date, profile_img, lic_num, birthdate
 		FROM user
-			WHERE user_id=#{userId} AND user_pw=password(#{userPw})
+			WHERE u_id=#{uId} AND u_pw=password(#{uPw})
 			ORDER BY id DESC
 			LIMIT 0,1
 	</select>
 	
 	<!-- 비밀번호 재발급 : 이메일주소가 일치하는 비밀번호를 변경한다. -->
 	<update id="updateUserPasswordByEmail" parameterType="com.ssc.model.User">
-		UPDATE user SET user_pw=password(#{userPw}), edit_date=now()
+		UPDATE user SET u_pw=password(#{uPw}), edit_date=now()
 		WHERE email=#{email};
 	</update>
 	
 	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
 	<select id="selectUserPasswordCount" parameterType="com.ssc.model.User" resultType="int">
 		SELECT count(id) FROM User
-		WHERE id=#{id} AND user_pw=password(#{userPw})
+		WHERE id=#{id} AND u_pw=password(#{uPw})
 	</select>
 	
 	<!-- 회원정보를 삭제한다. : 탈퇴 -->
@@ -82,12 +82,12 @@
 	<!-- 회원정보를 변경한다. -->
 	<update id="updateUser" parameterType="com.ssc.model.User">
 		UPDATE user SET
-			name=#{name}, user_pw=#{user_pw}, addr1=#{addr1}, addr2=#{addr2}, 
+			name=#{name}, u_pw=#{u_pw}, addr1=#{addr1}, addr2=#{addr2}, 
 			tel=#{tel}, email=#{email}, gender=#{gender}, email_yn=#{email_yn}
 			, use_area=#{use_area}, reg_date=now() , edit_date=now() , profile_img=#{profile_img}, lic_num=#{lic_num}, birthdate=#{birthdate}
 			
-			<if test="newUserPw != null and newUserPw !=''">
-				,user_pw=password(#{newUserPw})
+			<if test="newuPw != null and newuPw !=''">
+				,u_pw=password(#{newuPw})
 			</if>
 			
 			<choose>
@@ -105,7 +105,7 @@
 	<!-- 일련번호에 의한 회원정보 조회 -->
 	<select id="selectUser" parameterType="com.ssc.model.User"
 		resultMap="user">
-		id,name,user_id,user_pw,email,gender,addr1,addr2,
+		id,name,u_id,u_pw,email,gender,addr1,addr2,
 		tel,email_yn,user_area,reg_date,edit_date,profile_img,lic_num, birthdate
 		WHERE id=#{id}
 		</select> 

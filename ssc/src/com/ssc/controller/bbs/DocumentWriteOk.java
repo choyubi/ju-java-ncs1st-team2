@@ -82,7 +82,7 @@ public class DocumentWriteOk extends BaseController {
 		if (loginInfo != null) {
 			writerName = loginInfo.getName();
 			email = loginInfo.getEmail();
-			writerPw = loginInfo.getUserPw();
+			writerPw = loginInfo.getuPw();
 			userId = loginInfo.getId();
 		}
 
