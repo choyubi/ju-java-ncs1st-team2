@@ -295,7 +295,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label id="label" for="radio-inline1" class="col-md-2 control-label"> 주 사용 지역 </label>
+							<label id="label" for="radio1" class="col-md-2 control-label"> 주 사용 지역 </label>
 							<div class="col-md-10">
 								<label class="radio-inline"> <input type="radio" name="use_area" id="radio1" value="option1">서울
 								</label> <label class="radio-inline"> <input type="radio" name="use_area" id="radio2" value="option2">인천/경기
