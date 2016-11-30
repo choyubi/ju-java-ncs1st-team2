@@ -145,7 +145,6 @@
 							</div>
 						</div>
 
-<<<<<<< HEAD
 
 						<!-- 체크박스 입력양식 -->
 						<div class="form-group">
@@ -220,19 +219,6 @@
 
 					</fieldset>
 				</form>
-=======
-					<script type="text/javascript">
-						function button_event() {
-							if (confirm("정말 탈퇴하시겠습니까ㅠ_ㅠ??") == true) { //확인
-								location.replace("main.html");
-							} else { //취소
-								return;
-							}
-						}
-					</script>
-					<a href="${pageContext.request.contextPath }/user/out_ok.do" class="btn btn-danger" onclick="button_event();">회원탈퇴</a>
-				</div>
->>>>>>> branch 'master' of https://github.com/ITPAPER/ju-java-ncs1st-team2.git
 			</div>
 
 
