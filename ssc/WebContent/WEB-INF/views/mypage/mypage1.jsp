@@ -48,7 +48,7 @@
 
 						<!-- 변경비밀번호 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="pw_re" class="col-md-2 control-label">변경할 비밀번호</label>
+							<label id="label" for="pw_re" class="col-md-2 control-label">변경 비밀번호</label>
 							<div class="col-md-4">
 								<input type="password" class="form-control" name="new_u_pw" id="new_u_pw" placeholder="비밀번호 변경을 원하신다면 입력해주세요.">
 							</div>
@@ -57,7 +57,7 @@
 
 						<!-- 변경비밀번호확인 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="new_u_pw_re" class="col-md-2 control-label">변경할 비밀번호</label>
+							<label id="label" for="new_u_pw_re" class="col-md-2 control-label">변경 비밀번호 확인</label>
 							<div class="col-md-4">
 								<input type="password" class="form-control" name="new_u_pw_re" id="new_u_pw_re">
 							</div>
@@ -66,9 +66,9 @@
 
 						<!-- 이름 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="user_name" class="col-md-2 control-label">이름</label>
+							<label id="label" for="name" class="col-md-2 control-label">이름</label>
 							<div class="col-md-2">
-								<input type="text" class="form-control" name="user_name" id="user_name" value="${loginInfo.name}">
+								<input type="text" class="form-control" name="name" id="name" value="${loginInfo.name}">
 							</div>
 						</div>
 						<!-- //이름 입력양식 -->
@@ -140,7 +140,7 @@
 							<div class="col-md-10">
 
 								<label class="radio-inline"> <input type="radio" name="gender" id="gender1" value="M" <c:if test="${loginInfo.gender == 'M'}">checked</c:if> />남자
-								</label> <label class="radio-inline"> <input type="radio" name="gender" id="gender2" value="F" <c:if test="${loginInfo.gender == 'M'}">checked</c:if> />여자
+								</label> <label class="radio-inline"> <input type="radio" name="gender" id="gender2" value="F" <c:if test="${loginInfo.gender == 'F'}">checked</c:if> />여자
 								</label>
 							</div>
 						</div>
