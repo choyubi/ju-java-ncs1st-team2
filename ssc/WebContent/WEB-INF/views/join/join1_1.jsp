@@ -7,7 +7,24 @@
 <html lang="ko">
 <head>
 <%@ include file="/WEB-INF/views/inc/head.jsp"%>
-
+<script type="text/javascript">
+		function chk() {
+			var req = document.form.req.checked;
+			var num = 0;
+			if (req == true) {
+				num = 1;
+			}
+			if (num == 1) {
+				document.form.submit();
+			} else {
+				alert("개인정보 약관에 동의하셔야 합니다.");
+			}
+		}
+		function nochk() {
+			alert("동의하지 않으면 가입하실 수 없습니다");
+			location.href = "${pageContext.request.contextPath}/main.do";
+		}
+</script>
 </head>
 
 <body>
@@ -24,20 +41,22 @@
 				</div>
 				<!--탭 bar 끝-->
 
-				<div id="joinbox" class="col-sm-10">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							<div class="box-static box-transparent box-bordered padding-30">
-								<div class="box-title margin-bottom-30">
-									<h2 class="size-20">이용 약관 및 개인정보 수집 및 이용 안내</h2>
-								</div>
-								<form class="default-form nomargin sky-form codeplus-custom" action="" method="post">
-									<fieldset>
-										<div class="row margin-bottom-20">
-											<div class="form-group">
-												<div class="col-md-12">
-													<label for="register:site_term">SSC 이용약관 동의(필수)</label>
-													<textarea class="form-control margin-bottom-10" rows="10" readonly="readonly">
+			<div id="joinbox" class="col-sm-10">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="box-static box-transparent box-bordered padding-30">
+							<div class="box-title margin-bottom-30">
+								<h2 class="size-20">이용 약관 및 개인정보 수집 및 이용 안내</h2>
+							</div>
+							
+							<form class="default-form nomargin sky-form codeplus-custom" action="${pageContext.request.contextPath}/join1_2.do"  name="form" method="post">
+								<fieldset>
+									<div class="row margin-bottom-20">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label for="register:site_term">SSC 이용약관 동의(필수)</label>
+												<textarea class="form-control margin-bottom-10" rows="10"
+													readonly="readonly">
 														제 1조 (목적)
 
 이 이용약관(이하 '약관'이라 합니다)은 SSC(이하 '회사'라 합니다)가 제공하는 SSC 서비스(이하 '서비스'라 합니다)를 이용고객(이하 '회원'이라 합니다)이 이용함에 있어 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 구체적으로 규정함을 목적으로 합니다.
@@ -64,7 +83,18 @@
 
 본 약관에 명시되지 않은 사항에 대해서는 관련법령에 의하고, 법에 명시되지 않은 부분에 대하여는 관습에 의합니다.
 부칙
-본 약관은 2016년 8월 8일부터 적용됩니다.</textarea><label class="checkbox weight-300 checkbox-custom"><input type="checkbox" name="codeplus_agree"><i></i>SSC 이용약관에 동의합니다.</label></div></div></div><div class="row"><div class="form-group"><div class="col-md-12"><label for="register:privacy_term">개인정보 수집 및 이용에 대한 안내(필수)</label><textarea class="form-control margin-bottom-10" rows="10" readonly="readonly">SSC(이하 &quot;회사&quot;라 함) 는 제공되는 SSC서비스 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 개인정보보호법, 통신비밀보호법, 전기통신사업법, 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하며, 관련 법령에 의거한 개인정보취급방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다
+본 약관은 2016년 8월 8일부터 적용됩니다.</textarea>
+											<hr />
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group">
+											<div class="col-md-12">
+												<label for="register:privacy_term">개인정보 수집 및 이용에 대한
+													안내(필수)</label>
+												<textarea class="form-control margin-bottom-10" rows="10" readonly="readonly">
+SSC(이하 &quot;회사&quot;라 함) 는 제공되는 SSC서비스 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 개인정보보호법, 통신비밀보호법, 전기통신사업법, 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하며, 관련 법령에 의거한 개인정보취급방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다
 1. 수집하는 개인정보의 항목 및 수집방법
 
 2. 개인정보의 수집 및 이용 목적
@@ -123,36 +153,26 @@ IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
 현 개인정보취급방침 내용 추가, 삭제 및 수정이 있을 시에는 개정 최소 7일전부터 홈페이지의 '공지사항'을 통해 고지할 것입니다. 다만, 개인정보의 수집 및 활용, 제3자 제공 등과 같이 이용자 권리의 중요한 변경이 있을 경우에는 최소 30일 전에 고지합니다.
 공고일자 : 2016년 8월 8일
 시행일자 : 2016년 8월 8일
-												</textarea>		
-													<label class="checkbox weight-300 checkbox-custom"><input type="checkbox" name="privacy_agree"><i></i>개인정보 이용 안내에 동의합니다.</label>
-													<br>
-												<div class="levelbox">
-													<a href="${pageContext.request.contextPath}/join.do"><img src="img/prevbutton.jpg"></a>
-												    <a href="${pageContext.request.contextPath}/join1_2.do"><img src="img/nextbutton.jpg"></a>
-												    </div>
-												</div>
+												</textarea>
+												<label class="checkbox weight-300 checkbox-custom">
+												<input type="checkbox" name="req"><i></i>위 이용안내에 동의합니다.</label><br>
+												
+												 <input type="button" value="동의" onclick="chk()"/>
+  												 <input type="button" value="동의하지 않습니다" onclick="nochk()"/>
 											</div>
 										</div>
-									</fieldset>
-								</form>
-							</div>
+									</div>
+								</fieldset>
+							</form>
 						</div>
-					</div>	
+					</div>
 				</div>
-
-
-
-					
-
-	</div>
+			</div>
+		</div>
 	<!-- contain 끝-->
 	</div>
 	<!--main 끝-->
-
-
-		<hr>	
-
+	<hr>	
 	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
-	
 </body>
 </html>
