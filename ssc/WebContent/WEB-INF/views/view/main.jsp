@@ -187,14 +187,22 @@
 				<c:choose>
 					<c:when test="${loginInfo != null }">
 						<div>
-							<c:if test="${cookie.profileThumbnail != null}">
-								<img src="${pageContext.request.contextPath}/download.do?file=${cookie.profileThumbnail.value}" class="img-circle"/>
-							</c:if>
-							${loginInfo.name}님 <span class="caret"></span>
-							<div style="display: inline-block;">
-								<div>예약 내역</div>
-								<div>회원정보 수정</div>
-							</div> 
+						
+							<fieldset>
+							
+							<legend>
+								<c:if test="${cookie.profileThumbnail != null}">
+									<img src="${pageContext.request.contextPath}/download.do?file=${cookie.profileThumbnail.value}"/>
+								</c:if>
+								${loginInfo.name}님 
+							</legend>
+						
+							<div>
+								<a href="${pageContext.request.contextPath}/logout.do" class="btn btn-danger btn-block">로그아웃</a>
+								<a href="${pageContext.request.contextPath}/mypage1.do" class="btn btn-warning btn-block">회원수정</a>
+								<a href="${pageContext.request.contextPath}/mypage2.do" class="btn btn-primary btn-block">예약내역</a>
+							</div>
+							</fieldset>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -202,12 +210,12 @@
 						<fieldset>
 							<legend><strong>로그인</strong></legend>		
 							<div class="form-group">
-								<label for="user_id">아이디</label>
-								<input type="text" name="user_id" id="user_id" class="form-control" placeholder="아이디를 입력하세요."/>							
+								<label for="u_id">아이디</label>
+								<input type="text" name="u_id" id="u_id" class="form-control" placeholder="아이디를 입력하세요."/>							
 							</div>
 							<div class="form-group">
-								<label for="user_pw">비밀번호</label>
-								<input type="password" name="user_pw" id="user_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
+								<label for="u_pw">비밀번호</label>
+								<input type="password" name="u_pw" id="u_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
 							</div>
 							<button type="submit" class="btn btn-warning">
 								로그인

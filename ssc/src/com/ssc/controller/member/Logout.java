@@ -12,7 +12,7 @@ import com.ssc.helper.WebHelper;
 import com.ssc.model.User;
 
 
-@WebServlet("/Logout.do")
+@WebServlet("/logout.do")
 public class Logout extends BaseController {
 	private static final long serialVersionUID = -501706206962368206L;
 
@@ -29,7 +29,7 @@ public class Logout extends BaseController {
 	User loginInfo = (User) web.getSession("loginInfo");
 	
 	if (loginInfo == null) {
-		web.redirect(web.getRootPath() + "/index.do", "로그인 후에 이용 가능합니다.");
+		web.redirect(web.getRootPath() + "/main.do", "로그인 후에 이용 가능합니다.");
 		return null;
 	}
 	
@@ -37,7 +37,7 @@ public class Logout extends BaseController {
 	web.removeAllSession();
 	
 	/** (5) 페이지 이동 */
-	web.redirect(web.getRootPath() + "/index.do", "로그아웃 되었습니다.");
+	web.redirect(web.getRootPath() + "/main.do", "로그아웃 되었습니다.");
 		
 	 
 		return null;
