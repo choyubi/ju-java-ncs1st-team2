@@ -184,24 +184,40 @@
 
 			<div id="a1">
 				<div class="col-md-3">
-				<form role="form" method="post" action="${pageContext.request.contextPath }/user/login_ok.do">
-					<fieldset>
-						<legend><strong>로그인</strong></legend>		
-						<div class="form-group">
-							<label for="u_id">아이디</label>
-							<input type="text" name="u_id" id="u_id" class="form-control" placeholder="아이디를 입력하세요."/>							
+				<c:choose>
+					<c:when test="${loginInfo != null }">
+						<div>
+							<c:if test="${cookie.profileThumbnail != null}">
+								<img src="${pageContext.request.contextPath}/download.do?file=${cookie.profileThumbnail.value}" class="img-circle"/>
+							</c:if>
+							${loginInfo.name}님 <span class="caret"></span>
+							<div style="display: inline-block;">
+								<div>예약 내역</div>
+								<div>회원정보 수정</div>
+							</div> 
 						</div>
-						<div class="form-group">
-							<label for="u_pw">비밀번호</label>
-							<input type="password" name="u_pw" id="u_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
-						</div>
-						<button type="submit" class="btn btn-warning">
-							로그인
-						</button>
-						<a href="${pageContext.request.contextPath}/join.do" class="btn btn-danger">회원가입</a>
-						<a href="${pageContext.request.contextPath}/join3.do" class="btn btn-info">ID/PW 찾기</a>				
-					</fieldset>
-				</form>
+					</c:when>
+					<c:otherwise>
+					<form role="form" method="post" action="${pageContext.request.contextPath }/user/login_ok.do">
+						<fieldset>
+							<legend><strong>로그인</strong></legend>		
+							<div class="form-group">
+								<label for="user_id">아이디</label>
+								<input type="text" name="user_id" id="user_id" class="form-control" placeholder="아이디를 입력하세요."/>							
+							</div>
+							<div class="form-group">
+								<label for="user_pw">비밀번호</label>
+								<input type="password" name="user_pw" id="user_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
+							</div>
+							<button type="submit" class="btn btn-warning">
+								로그인
+							</button>
+							<a href="${pageContext.request.contextPath}/join.do" class="btn btn-danger">회원가입</a>
+							<a href="${pageContext.request.contextPath}/join3.do" class="btn btn-info">ID/PW 찾기</a>				
+						</fieldset>
+					</form>
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</div>
 			<!--// login 끝 -->
