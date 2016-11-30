@@ -84,7 +84,7 @@
 		UPDATE user SET
 			name=#{name}, u_pw=#{uPw}, postcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2}, 
 			tel=#{tel}, email=#{email}, gender=#{gender}, email_yn=#{emailYn}
-			, use_area=#{useArea}, reg_date=now() , edit_date=now() , profile_img=#{profileImg}, lic_num=#{licNum}, birthdate=#{birthdate}
+			, use_area=#{useArea}, reg_date=now() , edit_date=now() , profile_img=#{profileImg}, lic_num=#{licNum}
 
 			<if test="newUPw != null and newUPw !=''">
 				,u_pw=password(#{newUPw})
