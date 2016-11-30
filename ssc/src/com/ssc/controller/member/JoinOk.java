@@ -62,8 +62,9 @@ public class JoinOk extends BaseController {
 		Map<String, String> paramMap = upload.getParamMap();
 		String uId = paramMap.get("u_id");
 		String uPw = paramMap.get("u_pw");
-		String userPwRe = paramMap.get("user_pw_re"); 
+		String uPwRe = paramMap.get("u_pw_re"); 
 		String name = paramMap.get("user_name");
+		String postcode = paramMap.get("postcode");
 		String addr1 = paramMap.get("addr1");
 		String addr2 = paramMap.get("addr2");
 		String tel = paramMap.get("tel");
@@ -82,6 +83,7 @@ public class JoinOk extends BaseController {
 		logger.debug("uId=" + uId);
 		logger.debug("uPw=" + uPw);
 		logger.debug("name=" + name);
+		logger.debug("postcode=" + postcode);
 		logger.debug("addr1=" + addr1);
 		logger.debug("addr2=" + addr2);
 		logger.debug("tel=" + tel);
@@ -90,7 +92,7 @@ public class JoinOk extends BaseController {
 		logger.debug("email_yn=" + email_yn);
 		logger.debug("use_area=" + use_area);
 		logger.debug("lic_num=" + lic_num);
-		logger.debug("user_Pw_Re=" + userPwRe);
+		logger.debug("user_Pw_Re=" + uPwRe);
 		logger.debug("birthdate=" + birthdate);
 		
 		/** (5) 입력값의 유효성 검사 */
@@ -132,7 +134,7 @@ public class JoinOk extends BaseController {
 		}
 		
 		// 비밀번호 확인
-		if(!userPwRe.equals(userPwRe)) {
+		if(!uPwRe.equals(uPwRe)) {
 			sqlSession.close();
 			web.redirect(null, "비밀번호 확인이 잘못되었습니다.");
 			return null;
@@ -228,6 +230,7 @@ public class JoinOk extends BaseController {
 		user.setuId(uId);
 		user.setuPw(uPw);
 		user.setName(name);
+		user.setPostcode(postcode);
 		user.setAddr1(addr1);
 		user.setAddr2(addr2);
 		user.setTel(tel);

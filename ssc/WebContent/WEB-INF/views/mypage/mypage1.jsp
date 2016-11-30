@@ -102,7 +102,7 @@
 
 						<!-- 주소 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="postcode" class="col-md-2 control-label">우편번호</label>
+							<label id="label" for="" class="col-md-2 control-label">우편번호</label>
 							<div class="col-md-8 clearfix">
 								<input type="text" name="postcode" id="postcode" class="form-control pull-left" style="width: 120px; margin-right: 5px" value="${loginInfo.postcode}">
 								<!-- 클릭 시 , javascript 함수 호출 : openDaumPostcode() -->

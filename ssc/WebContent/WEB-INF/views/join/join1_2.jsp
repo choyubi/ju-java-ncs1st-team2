@@ -51,7 +51,7 @@
 
 						<!-- 비밀번호확인 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="pw_re" class="col-md-2 control-label">비밀번호확인*</label>
+							<label id="label" for="u_pw_re" class="col-md-2 control-label">비밀번호확인*</label>
 							<div class="col-md-4">
 								<input type="password" class="form-control" name="u_pw_re" id="u_pw_re" placeholder="비밀번호를 입력하세요.">
 							</div>

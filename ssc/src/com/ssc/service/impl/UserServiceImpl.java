@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 	@Override // 아이디 예외처리
 	public void selectUserIdCount(User user) throws Exception {
 		try {
-			int result = sqlSession.selectOne("UserMapper.selectUserIdCount", user);
+			int result = sqlSession.selectOne("UserMapper.selectuIdCount", user);
 
 			if (result > 0) {
 				throw new NullPointerException();
