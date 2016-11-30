@@ -55,7 +55,7 @@
 	resultMap="user">
 		SELECT
 			id, u_id, u_pw, name, postcode, addr1, addr2, tel, email, 
-			gender, email_yn, use_area, reg_date, edit_date, profile_img, lic_num, birthdate
+			gender, email_yn, use_area, reg_date, edit_date, profile_img, lic_num, DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate
 		FROM user
 			WHERE u_id=#{uId} AND u_pw=password(#{uPw})
 			ORDER BY id DESC
@@ -106,7 +106,7 @@
 	<select id="selectUser" parameterType="com.ssc.model.User" resultMap="user">
 		SELECT
 		id,name,u_id,u_pw,email,gender,postcode,addr1,addr2,
-		tel,email_yn,use_area,reg_date,edit_date,profile_img,lic_num, birthdate
+		tel,email_yn,use_area,reg_date,edit_date,profile_img,lic_num, DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate
 		FROM user
 	</select> 
 	
