@@ -25,7 +25,7 @@ import com.ssc.service.UserService;
 import com.ssc.service.impl.UserServiceImpl;
 
 // 가입 처리를 위한 컨트롤러
-@WebServlet("/user/join_ok.do")
+@WebServlet("/join_ok.do")
 public class JoinOk extends BaseController {
 	private static final long serialVersionUID = 8930229621781174513L;
 
@@ -63,7 +63,7 @@ public class JoinOk extends BaseController {
 		String userId = paramMap.get("user_id");
 		String userPw = paramMap.get("user_pw");
 		String userPwRe = paramMap.get("user_pw_re"); 
-		String name = paramMap.get("name");
+		String name = paramMap.get("user_name");
 		String addr1 = paramMap.get("addr1");
 		String addr2 = paramMap.get("addr2");
 		String tel = paramMap.get("tel");
@@ -71,8 +71,12 @@ public class JoinOk extends BaseController {
 		String gender = paramMap.get("gender");
 		String email_yn = paramMap.get("email_yn");
 		String use_area = paramMap.get("use_area");
-		String profile_img = paramMap.get("profile_img");
 		String lic_num = paramMap.get("lic_num");
+		
+		String birthdate1 = paramMap.get("birthdate1");
+		String birthdate2 = paramMap.get("birthdate2");
+		String birthdate3 = paramMap.get("birthdate3");
+		String birthdate = birthdate1 + "-" + birthdate2 + "-" + birthdate3;
 		
 		// 전달받은 파라미터는 값의 정상여부 확인을 위해서 로그로 확인
 		logger.debug("userId=" + userId);
@@ -85,9 +89,9 @@ public class JoinOk extends BaseController {
 		logger.debug("gender=" + gender);
 		logger.debug("email_yn=" + email_yn);
 		logger.debug("use_area=" + use_area);
-		logger.debug("profile_img=" + profile_img);
 		logger.debug("lic_num=" + lic_num);
 		logger.debug("user_Pw_Re=" + userPwRe);
+		logger.debug("birthdate=" + birthdate);
 		
 		/** (5) 입력값의 유효성 검사 */
 		// 아이디 검사
@@ -198,18 +202,7 @@ public class JoinOk extends BaseController {
 			return null;
 		}
 
-		// 이메일 수신여부
-		if (!regex.isValue(email_yn)) {
-			sqlSession.close();
-			web.redirect(null, "이메일 수신여부를 입력하세요.");
-			return null;
-		}
-
-		if (!email_yn.equals("Yes") && !email_yn.equals("No")) {
-			sqlSession.close();
-			web.redirect(null, "수신여부를 확인하세요.");
-			return null;
-		}
+		
 
 		// 프로필 이미지
 
@@ -244,6 +237,7 @@ public class JoinOk extends BaseController {
 		user.setUseArea(use_area);
 		user.setProfileImg(profileImg);
 		user.setLicNum(lic_num);
+		user.setBirthdate(birthdate);
 
 		/** (8) Service를 통한 데이터베이스 저장 처리 */
 		try {
@@ -257,7 +251,7 @@ public class JoinOk extends BaseController {
 
 		/** (9) 가입이 완료되었으므로 메인페이지로 이동 */
 		sqlSession.close();
-		web.redirect(web.getRootPath() + "/index.do", "회원가입이 완료되었습니다.로그인 해 주세요.");
+		web.redirect(web.getRootPath() + "/main.do", "회원가입이 완료되었습니다.로그인 해 주세요.");
 
 		return null;
 	}

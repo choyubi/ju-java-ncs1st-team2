@@ -184,18 +184,18 @@
 
 			<div id="a1">
 				<div class="col-md-3">
-				<form role="form">
+				<form role="form" method="post" action="${pageContext.request.contextPath }/user/login_ok.do">
 					<fieldset>
 						<legend><strong>로그인</strong></legend>		
 						<div class="form-group">
 							<label for="user_id">아이디</label>
-							<input type="text" id="user_id" class="form-control" placeholder="아이디를 입력하세요."/>							
+							<input type="text" name="user_id" id="user_id" class="form-control" placeholder="아이디를 입력하세요."/>							
 						</div>
 						<div class="form-group">
 							<label for="user_pw">비밀번호</label>
-							<input type="password" id="user_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
+							<input type="password" name="user_pw" id="user_pw" class="form-control" placeholder="비밀번호를 입력하세요."/>							
 						</div>
-						<button type="button" class="btn btn-warning">
+						<button type="submit" class="btn btn-warning">
 							로그인
 						</button>
 						<a href="${pageContext.request.contextPath}/join.do" class="btn btn-danger">회원가입</a>
