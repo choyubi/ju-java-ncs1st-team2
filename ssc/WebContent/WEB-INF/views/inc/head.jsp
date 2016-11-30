@@ -34,3 +34,8 @@
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ajax/ajax_helper.css">
 
+<!-- 다음 우편번호 검색 스크립트 -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/daumPostCode.js"></script>
+
+

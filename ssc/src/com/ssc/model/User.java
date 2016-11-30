@@ -16,102 +16,109 @@ public class User {
 	private String editDate;
 	private String profileImg;
 	private String licNum;
+	private String birthdate;
 	public int getId() {
-		return id;
+	    return id;
 	}
 	public void setId(int id) {
-		this.id = id;
+	    this.id = id;
 	}
 	public String getUserId() {
-		return userId;
+	    return userId;
 	}
 	public void setUserId(String userId) {
-		this.userId = userId;
+	    this.userId = userId;
 	}
 	public String getUserPw() {
-		return userPw;
+	    return userPw;
 	}
 	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+	    this.userPw = userPw;
 	}
 	public String getName() {
-		return name;
+	    return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+	    this.name = name;
 	}
 	public String getAddr1() {
-		return addr1;
+	    return addr1;
 	}
 	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
+	    this.addr1 = addr1;
 	}
 	public String getAddr2() {
-		return addr2;
+	    return addr2;
 	}
 	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
+	    this.addr2 = addr2;
 	}
 	public String getTel() {
-		return tel;
+	    return tel;
 	}
 	public void setTel(String tel) {
-		this.tel = tel;
+	    this.tel = tel;
 	}
 	public String getEmail() {
-		return email;
+	    return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+	    this.email = email;
 	}
 	public String getGender() {
-		return gender;
+	    return gender;
 	}
 	public void setGender(String gender) {
-		this.gender = gender;
+	    this.gender = gender;
 	}
 	public String getEmailYn() {
-		return emailYn;
+	    return emailYn;
 	}
 	public void setEmailYn(String emailYn) {
-		this.emailYn = emailYn;
+	    this.emailYn = emailYn;
 	}
 	public String getUseArea() {
-		return useArea;
+	    return useArea;
 	}
 	public void setUseArea(String useArea) {
-		this.useArea = useArea;
+	    this.useArea = useArea;
 	}
 	public String getRegDate() {
-		return regDate;
+	    return regDate;
 	}
 	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	    this.regDate = regDate;
 	}
 	public String getEditDate() {
-		return editDate;
+	    return editDate;
 	}
 	public void setEditDate(String editDate) {
-		this.editDate = editDate;
+	    this.editDate = editDate;
 	}
 	public String getProfileImg() {
-		return profileImg;
+	    return profileImg;
 	}
 	public void setProfileImg(String profileImg) {
-		this.profileImg = profileImg;
+	    this.profileImg = profileImg;
 	}
 	public String getLicNum() {
-		return licNum;
+	    return licNum;
 	}
 	public void setLicNum(String licNum) {
-		this.licNum = licNum;
+	    this.licNum = licNum;
+	}
+	public String getBirthdate() {
+	    return birthdate;
+	}
+	public void setBirthdate(String birthdate) {
+	    this.birthdate = birthdate;
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userId=" + userId + ", userPw=" + userPw + ", name=" + name + ", addr1=" + addr1
-				+ ", addr2=" + addr2 + ", tel=" + tel + ", email=" + email + ", gender=" + gender + ", emailYn="
-				+ emailYn + ", useArea=" + useArea + ", regDate=" + regDate + ", editDate=" + editDate + ", profileImg="
-				+ profileImg + ", licNum=" + licNum + "]";
+	    return "User [id=" + id + ", userId=" + userId + ", userPw=" + userPw + ", name=" + name + ", addr1="
+		    + addr1 + ", addr2=" + addr2 + ", tel=" + tel + ", email=" + email + ", gender=" + gender
+		    + ", emailYn=" + emailYn + ", useArea=" + useArea + ", regDate=" + regDate + ", editDate="
+		    + editDate + ", profileImg=" + profileImg + ", licNum=" + licNum + ", birthdate=" + birthdate + "]";
 	}
-
+	
 }
