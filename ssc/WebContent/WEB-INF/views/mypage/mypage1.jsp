@@ -75,8 +75,7 @@
 							}
 						}
 					</script>
-					<input class="btn btn-danger" type="button" value="탈퇴하기"
-						onclick="button_event();">
+					<a href="${pageContext.request.contextPath }/user/out_ok.do" class="btn btn-danger" onclick="button_event();">회원탈퇴</a>
 				</div>
 			</div>
 			<!--row 끝 -->

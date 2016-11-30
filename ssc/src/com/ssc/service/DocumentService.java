@@ -39,5 +39,8 @@ public interface DocumentService {
 	/**자신의 게시물 수정 */
 	public void updateDocument(Document document) throws Exception;
 	
+	/** 탈퇴시 게시물 처리	 */
+	public void updateDocumentUserOut(Document document) throws Exception;
+	
 	
 }

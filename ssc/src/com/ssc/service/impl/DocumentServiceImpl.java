@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import com.ssc.model.Document;
 import com.ssc.service.DocumentService;
 
+
 public class DocumentServiceImpl implements DocumentService {
 
 	Logger logger;
@@ -195,6 +196,21 @@ public class DocumentServiceImpl implements DocumentService {
 			sqlSession.rollback();
 			logger.error(e.getLocalizedMessage());
 			throw new Exception("게시물 수정에 실패했습니다.");
+		} finally {
+			sqlSession.commit();
+		}
+	}
+	
+	@Override
+	public void updateDocumentUserOut(Document document) throws Exception {
+		try {
+			// 게시글을 작성한 적이 없는 회원도 있을 수 있기 때문에,
+			// NullPointerException을 발생시키지 않는다.
+			sqlSession.update("BbsDocumentMapper.updateDocumentUserOut", document);
+		} catch (Exception e) {
+			sqlSession.rollback();
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("참조관계 해제에 실패했습니다.");
 		} finally {
 			sqlSession.commit();
 		}

@@ -60,7 +60,7 @@ public class CommentDelete extends BaseController {
 		// 회원번호가 일치하는 게시물 수 조회하기
 		int commentCount = 0; 
 		try {
-			commentCount = commentService.selectCommentCountByMemberId(comment);
+			commentCount = commentService.selectCommentCountByUserId(comment);
 		} catch (Exception e) {
 			web.redirect(null, e.getLocalizedMessage());
 			return null;

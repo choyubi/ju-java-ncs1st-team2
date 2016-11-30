@@ -16,7 +16,7 @@ public interface CommentService {
 	public List<Comment> selectCommentList(Comment comment) throws Exception;
 
 	/**자신의 댓글인지 검사한다 */
-	public int selectCommentCountByMemberId(Comment comment) throws Exception;
+	public int selectCommentCountByUserId(Comment comment) throws Exception;
 	
 	/**비밀번호를 검사한다.*/
 	public int selectCommentCountByPw(Comment comment) throws Exception;
@@ -31,6 +31,6 @@ public interface CommentService {
 	public void deleteCommentAll(Comment comment) throws Exception;
 	
 	/**회원과 댓글간의 참조관계를 해제한다. */
-	public void updateCommentMemberOut(Comment comment) throws Exception;
+	public void updateCommentUserOut(Comment comment) throws Exception;
 
 }

@@ -47,13 +47,13 @@ public class LoginOk extends BaseController {
 		
 		/** (4) 파라미터 처리 */
 		// --> topbar.jsp에 배치된 폼으로부터 전송되는 입력값.
-		String userId = web.getString("user_id");
-		String userPw = web.getString("user_pw");
+		String uId = web.getString("u_id");
+		String uPw = web.getString("u_pw");
 		
-		logger.debug("userId=" + userId);
-		logger.debug("userPw=" + userPw);
+		logger.debug("uId=" + uId);
+		logger.debug("uPw=" + uPw);
 		
-		if (userId == null || userPw == null) {
+		if (uId == null || uPw == null) {
 			sqlSession.close();
 			web.redirect(null, "아이디나 비밀번호가 없습니다.");
 			return null;
@@ -62,8 +62,8 @@ public class LoginOk extends BaseController {
 		
 		/** (5) 전달받은 파라미터를 Beans에 설정한다. */
 		User user = new User();
-		user.setUserId(userId);
-		user.setUserPw(userPw);
+		user.setuId(uId);
+		user.setuPw(uPw);
 		
 		/** (6) Service를 통한 회원 인증 */
 		User loginInfo = null;
@@ -96,7 +96,7 @@ public class LoginOk extends BaseController {
 		/** (9) 페이지 이동 */
 		String movePage = request.getHeader("referer");
 		if (movePage == null) {
-			movePage = web.getRootPath() + "/index.do";
+			movePage = web.getRootPath() + "/main.do";
 		}
 		
 		sqlSession.close();

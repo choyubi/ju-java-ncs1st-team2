@@ -296,60 +296,60 @@
 			$("#comment_form").trigger('reset');
 		});
 		
-// 		/** 모든 모달창의 캐시 방지 처리 */
-// 		$('.modal').on('hidden.bs.modal', function (e) {
-// 			// 모달창 내의 내용을 강제로 지움.
-//     		$(this).removeData('bs.modal');
-// 		});
+		/** 모든 모달창의 캐시 방지 처리 */
+		$('.modal').on('hidden.bs.modal', function (e) {
+			// 모달창 내의 내용을 강제로 지움.
+    		$(this).removeData('bs.modal');
+		});
 		
-// 		/** 동적으로 로드된 폼 안에서의 submit 이벤트 */
-// 		$(document).on('submit', "#comment_delete_form", function(e) {
-// 			e.preventDefault();
+		/** 동적으로 로드된 폼 안에서의 submit 이벤트 */
+		$(document).on('submit', "#comment_delete_form", function(e) {
+			e.preventDefault();
 
-// 			// AjaxForm 플러그인의 강제 호출
-// 			$(this).ajaxSubmit(function(json) {
-// 				if (json.rt != "OK") {
-// 					alert(json.rt);
-// 					return false;
-// 				}
+			// AjaxForm 플러그인의 강제 호출
+			$(this).ajaxSubmit(function(json) {
+				if (json.rt != "OK") {
+					alert(json.rt);
+					return false;
+				}
 				
-// 				alert("삭제되었습니다.");
-// 				// modal 강제로 닫기
-// 				$("#comment_delete_modal").modal('hide');
+				alert("삭제되었습니다.");
+				// modal 강제로 닫기
+				$("#comment_delete_modal").modal('hide');
 				
-// 				// JSON 결과에 포함된 덧글일련번호를 사용하여 삭제할 <li>의 id값을 찾는다.
-// 				var comment_id = json.commentId;
-// 				$("#comment_" + comment_id).remove();
-// 			});
-// 		});
+				// JSON 결과에 포함된 덧글일련번호를 사용하여 삭제할 <li>의 id값을 찾는다.
+				var comment_id = json.commentId;
+				$("#comment_" + comment_id).remove();
+			});
+		});
 		
-// 		/** 동적으로 로드된 폼 안에서의 submit 이벤트 */
-// 		$(document).on('submit', "#comment_edit_form", function(e) {
-// 			e.preventDefault();
+		/** 동적으로 로드된 폼 안에서의 submit 이벤트 */
+		$(document).on('submit', "#comment_edit_form", function(e) {
+			e.preventDefault();
 			
-// 			// AjaxForm 플러그인의 강제 호출
-// 			$(this).ajaxSubmit(function(json) {
-// 				if (json.rt != "OK") {
-// 					alert(json.rt);
-// 					return false;
-// 				}
+			// AjaxForm 플러그인의 강제 호출
+			$(this).ajaxSubmit(function(json) {
+				if (json.rt != "OK") {
+					alert(json.rt);
+					return false;
+				}
 				
-// 				// 줄 바꿈에 대한 처리
-// 				// --> 정규표현식 /~~~/g는 문자열 전체의 의미.
-// 				// --> JSON에 포함된 '&lt;br/&gt;'을 검색에서 <br/>로 변경함.
-// 				json.item.content = json.item.content.replace(/&lt;br\/&gt;/g, "<br/>");
+				// 줄 바꿈에 대한 처리
+				// --> 정규표현식 /~~~/g는 문자열 전체의 의미.
+				// --> JSON에 포함된 '&lt;br/&gt;'을 검색에서 <br/>로 변경함.
+				json.item.content = json.item.content.replace(/&lt;br\/&gt;/g, "<br/>");
 				
-// 				// 템플릿 HTML을 로드한다.
-// 				var template = Handlebars.compile($("#tmpl_comment_item").html());
-// 				// JSON에 포함된 작성 결과 데이터를 템플릿에 결합한다.
-// 				var html = template(json.item);
-// 				// 결합된 결과를 기존의 덧글 항목과 교체한다.
-// 				$("#comment_" + json.item.id).replaceWith(html);
+				// 템플릿 HTML을 로드한다.
+				var template = Handlebars.compile($("#tmpl_comment_item").html());
+				// JSON에 포함된 작성 결과 데이터를 템플릿에 결합한다.
+				var html = template(json.item);
+				// 결합된 결과를 기존의 덧글 항목과 교체한다.
+				$("#comment_" + json.item.id).replaceWith(html);
 				
-// 				// 덧글 수정 모달 강제로 닫기
-// 				$("#comment_edit_modal").modal('hide');
-// 			});
-// 		});
+				// 덧글 수정 모달 강제로 닫기
+				$("#comment_edit_modal").modal('hide');
+			});
+		});
 	});
 </script>
 

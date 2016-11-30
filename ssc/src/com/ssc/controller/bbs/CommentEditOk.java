@@ -78,13 +78,13 @@ public class CommentEditOk extends BaseController {
 				temp.setId(commentId);
 				temp.setUserId(loginInfo.getId());
 
-				if (commentService.selectCommentCountByMemberId(temp) > 0) {
+				if (commentService.selectCommentCountByUserId(temp) > 0) {
 					// 소유권을 의미하는 변수 변경
 					myComment = true;
 					// 입력되지 않은 정보들 갱신
 					writerName = loginInfo.getName();
 					email = loginInfo.getEmail();
-					writerPw = loginInfo.getUserPw();
+					writerPw = loginInfo.getuPw();
 					userId = loginInfo.getId();
 				}
 			} catch (Exception e) {

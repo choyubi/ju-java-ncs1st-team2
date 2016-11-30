@@ -30,9 +30,9 @@
 
 						<!-- 아이디 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="user_id" class="col-md-2 control-label">아이디*</label>
+							<label id="label" for="u_id" class="col-md-2 control-label">아이디*</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 입력하세요.">
+								<input type="text" class="form-control" name="u_id" id="u_id" placeholder="아이디를 입력하세요.">
 							</div>
 							<div class="col-md-1">
 								<button class="btn btn-primary">아이디 중복확인</button>
@@ -42,9 +42,9 @@
 
 						<!-- 비밀번호 입력양식 -->
 						<div class="form-group">
-							<label id="label" for="user_pw" class="col-md-2 control-label">비밀번호*</label>
+							<label id="label" for="u_pw" class="col-md-2 control-label">비밀번호*</label>
 							<div class="col-md-4">
-								<input type="password" class="form-control" name="user_pw" id="user_pw" placeholder="비밀번호를 입력하세요.">
+								<input type="password" class="form-control" name="u_pw" id="u_pw" placeholder="비밀번호를 입력하세요.">
 							</div>
 						</div>
 						<!-- //비밀번호 입력양식 -->
@@ -53,7 +53,7 @@
 						<div class="form-group">
 							<label id="label" for="pw_re" class="col-md-2 control-label">비밀번호확인*</label>
 							<div class="col-md-4">
-								<input type="password" class="form-control" name="user_pw_re" id="user_pw_re" placeholder="비밀번호를 입력하세요.">
+								<input type="password" class="form-control" name="u_pw_re" id="u_pw_re" placeholder="비밀번호를 입력하세요.">
 							</div>
 						</div>
 						<!-- //비밀번호확인 입력양식 -->

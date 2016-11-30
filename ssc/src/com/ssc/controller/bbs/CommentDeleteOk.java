@@ -77,7 +77,7 @@ public class CommentDeleteOk extends BaseController {
 		try {
 			// Beans에 추가된 자신의 회원번호를 사용하여 자신의 덧글임을 판별한다.
 			// --> 자신의 덧글이 아니라면 비밀번호 검사
-			if (commentService.selectCommentCountByMemberId(comment) < 1) {
+			if (commentService.selectCommentCountByUserId(comment) < 1) {
 				commentService.selectCommentCountByPw(comment);
 			}
 			commentService.deleteComment(comment);	// 덧글삭제

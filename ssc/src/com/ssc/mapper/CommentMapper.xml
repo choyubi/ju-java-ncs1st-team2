@@ -64,7 +64,7 @@
 	</select>
 	
 	<!-- 자신의 덧글인지 검사한다 -->
-	<select id="selectCommentCountByMemberId"
+	<select id="selectCommentCountByUserId"
 		parameterType="com.ssc.model.Comment"
 		resultType="int">
 		SELECT COUNT(id) FROM comment
@@ -101,7 +101,7 @@
 	</delete>
 	
 	<!-- 특정 회원과의 게시물 참조 해제하기 -->
-	<update id="updateCommentMemberOut" parameterType="com.ssc.model.Comment">
+	<update id="updateCommentUserOut" parameterType="com.ssc.model.Comment">
 		UPDATE comment
 		SET    user_id=NULL, edit_date=now()
 		WHERE  user_id=#{userId}
