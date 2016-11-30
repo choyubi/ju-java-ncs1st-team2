@@ -43,7 +43,14 @@ public class LoginOk extends BaseController {
 		upload = UploadHelper.getInstance();
 		userService = new UserServiceImpl(sqlSession, logger);
 		
-		/** (3) 로그인 여부 검사 */
+		/** 3) 로그인 여부 검사 */
+		// 로그인 중이라면 이 페이지를 동작시켜서는 안된다.
+		if(web.getSession("loginInfo") != null){
+		    // 이미 SqlSession 객체를 생성했으므로, 데이터베이스 접속을 해제해야 한다.
+		    sqlSession.close();
+		    web.redirect(web.getRootPath() + "/main.do", "이미 로그인 하셨습니다.");
+		    return null;
+		}
 		
 		/** (4) 파라미터 처리 */
 		// --> topbar.jsp에 배치된 폼으로부터 전송되는 입력값.
