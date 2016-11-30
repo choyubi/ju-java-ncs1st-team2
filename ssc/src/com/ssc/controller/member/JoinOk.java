@@ -79,6 +79,8 @@ public class JoinOk extends BaseController {
 		String birthdate3 = paramMap.get("birthdate3");
 		String birthdate = birthdate1 + "-" + birthdate2 + "-" + birthdate3;
 		
+		
+		
 		// 전달받은 파라미터는 값의 정상여부 확인을 위해서 로그로 확인
 		logger.debug("uId=" + uId);
 		logger.debug("uPw=" + uPw);

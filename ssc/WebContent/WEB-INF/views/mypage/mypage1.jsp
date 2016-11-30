@@ -151,7 +151,7 @@
 							<label id="label" for="email_yn" class="col-md-2 control-label"> 이메일 알림 받음 </label>
 							<div class="col-md-10">
 								<div class="checkbox">
-									<label> <input name="email_yn" id="email_yn" type="checkbox" value="Y"> SSC의 새로운 소식을 이메일로 수신하시겠습니까?
+									<label> <input name="email_yn" id="email_yn" type="checkbox" value="Y" <c:if test="${loginInfo.emailYn == 'Y'}">checked</c:if>> SSC의 새로운 소식을 이메일로 수신하시겠습니까?
 									</label>
 								</div>
 							</div>
