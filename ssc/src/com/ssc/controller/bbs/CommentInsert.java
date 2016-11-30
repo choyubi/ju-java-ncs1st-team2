@@ -21,6 +21,7 @@ import com.ssc.helper.WebHelper;
 import com.ssc.model.Comment;
 import com.ssc.model.User;
 import com.ssc.service.CommentService;
+import com.ssc.service.impl.CommentServiceImpl;
 
 @WebServlet("/bbs/comment_insert.do")
 public class CommentInsert extends BaseController {
@@ -35,11 +36,14 @@ public class CommentInsert extends BaseController {
 
     @Override
     public String doRun(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    	
+    response.setContentType("application/json");
+    	
 	logger = LogManager.getFormatterLogger(request.getRequestURI());
 	sqlSession = MyBatisConnectionFactory.getSqlSession();
 	web = WebHelper.getInstance(request, response);
 	regex = RegexHelper.getInstance();
+	commentService = new CommentServiceImpl(sqlSession, logger);
 
 	// 파라미터 수신
 	int documentId = web.getInt("document_id");
