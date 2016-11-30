@@ -135,6 +135,5 @@ public class User {
 		    + editDate + ", profileImg=" + profileImg + ", licNum=" + licNum + ", birthdate=" + birthdate
 		    + ", newUPw=" + newUPw + "]";
 	}
-	
-	
+		
 }
