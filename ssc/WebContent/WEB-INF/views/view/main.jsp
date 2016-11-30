@@ -100,83 +100,34 @@
 				<!-- 탭 화면 시작 -->
 				<div class="tab-content">
 					<div class="tab-pane fade in active" id="home">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th class="text-center"></th>
-									<th class="text-center">제목</th>
-									<th class="text-center">작성일자</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="text-center">1</td>
-									<td>새로운 ss존이 탄생했습니다. 축하해주세요</td>
-									<td class="text-center">2016-05-50</td>
-								</tr>
-								<tr>
-									<td class="text-center">2</td>
-									<td>공지사항이 공지공지공지</td>
-									<td class="text-center">2016-05-25</td>
-								</tr>
-								<tr>
-									<td class="text-center">3</td>
-									<td>SSC에서 요금할인 이벤트 진행중입니다.</td>
-									<td class="text-center">2016-05-20</td>
-								</tr>
-								<tr>
-									<td class="text-center">4</td>
-									<td>새로운 ss존이 탄생했습니다. 축하해주세요</td>
-									<td class="text-center">2016-04-11</td>
-								</tr>
-								<tr>
-									<td class="text-center">5</td>
-									<td>새로운 시작 SSC</td>
-									<td class="text-center">2016-04-10</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+							<div class="col-md-12 article-item">
+								<ul class="list-group">
+									<c:forEach var="document" items="${noticeList}">
+										<li class="list-group-item"><a
+											href="${pageContext.request.contextPath}/bbs/document_read.do?category=${document.category}&document_id=${document.id}">${document.subject}</a>
+										</li>
+									</c:forEach>
+								</ul>
+								<div class="pull-right">
+										<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=notice" class="btn btn-primary btn-xs">more</a>
+								</div>
+							</div>
+						</div>
 
 					<div class="tab-pane fade" id="profile">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<th class="text-center"></th>
-									<th class="text-center">제목</th>
-									<th class="text-center">작성일자</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="text-center">1</td>
-									<td>너무 즐거운 여행이였습니다. 최고에요</td>
-									<td class="text-center">2016-09-09</td>
-
-								</tr>
-								<tr>
-									<td class="text-center">2</td>
-									<td>다른건 다 좋은데 이건 좀..</td>
-									<td class="text-center">2016-09-01</td>
-								</tr>
-								<tr>
-									<td class="text-center">3</td>
-									<td>이용후기입닏. 이용이용</td>
-									<td class="text-center">2016-08-09</td>
-								</tr>
-								<tr>
-									<td class="text-center">3</td>
-									<td>덕분에 부산 잘 갔다왔습니다.</td>
-									<td class="text-center">2016-08-02</td>
-								</tr>
-								<tr>
-									<td class="text-center">3</td>
-									<td>알니아런이ㅏ러ㅑㅐ얼나이런아ㅣ런이라</td>
-									<td class="text-center">2016-07-09</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+							<div class="col-md-12 article-item">
+								<ul class="list-group">
+									<c:forEach var="document" items="${reviewList}">
+										<li class="list-group-item"><a
+											href="${pageContext.request.contextPath}/bbs/document_read.do?category=${document.category}&document_id=${document.id}">${document.subject}</a>
+										</li>
+									</c:forEach>
+								</ul>
+								<div class="pull-right">
+										<a href="${pageContext.request.contextPath}/bbs/document_list.do?category=review" class="btn btn-primary btn-xs">more</a>
+									</div>
+							</div>
+						</div>
 				</div>				
 			</div>
 			<!--// 탭 화면 끝 -->

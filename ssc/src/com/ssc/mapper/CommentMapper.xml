@@ -86,7 +86,7 @@
 	
 	<!-- 덧글 정보 수정하기 -->
 	<update id="updateComment" parameterType="com.ssc.model.Comment">
-		UPDATE bbs_comment SET
+		UPDATE comment SET
 			writer_name=#{writerName},
 			email=#{email},
 			content=#{content},
