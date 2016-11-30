@@ -254,7 +254,6 @@
 				alert(json.rt);
 				return false;
 			}
-			
 			// 템플릿 HTML을 로드한다.
 			var template = Handlebars.compile($("#tmpl_comment_item").html());
 			
@@ -280,7 +279,6 @@
 				alert(json.rt);
 				return false;
 			}
-
 			// 줄 바꿈에 대한 처리
 			// --> 정규표현식 /~~~/g는 문자열 전체의 의미.
 			// --> JSON에 포함된 '&lt;br/&gt;'을 검색에서 <br/>로 변경함.
