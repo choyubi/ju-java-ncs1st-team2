@@ -89,7 +89,7 @@ public class LoginOk extends BaseController {
 		String profileImg = loginInfo.getProfileImg();
 		if (profileImg != null) {
 			try {
-				String profileThumbnail = upload.createThumbnail(profileImg,40,40,true);
+				String profileThumbnail = upload.createThumbnail(profileImg, 100, 100,true);
 				web.setCookie("profileThumbnail", profileThumbnail, -1);
 			} catch (Exception e) {
 				web.redirect(null, e.getLocalizedMessage());

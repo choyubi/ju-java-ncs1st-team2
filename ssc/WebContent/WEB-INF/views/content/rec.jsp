@@ -37,7 +37,15 @@
 				<br>
 				<br>
 
-
+				<div class="col-sm-10">
+					<c:forEach var="document" items="${galleryList }" varStatus="status">
+						<c:set var="cls" value=""></c:set>
+						<c:if test="${status.index == 0 }">
+							<c:set var="cls" value="active"></c:set>
+						</c:if>
+						<a href="${pageContext.request.contextPath }/bbs/document_read.do?category=&document_id="></a>
+					</c:forEach>
+				</div>
 
 
 					<!-- 데스크탑: 한 줄에 4개, 태블릿: 한 줄에 2개 씩 배치되도록 그리드 구성 -->
