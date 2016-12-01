@@ -13,15 +13,16 @@
 		<result property="carPay" column="car_pay" />
 		<result property="zoneNum" column="zone_num" />
 		<result property="zoneName" column="zone_name" />
+		<result property="carImage" column="car_image" />
 	</resultMap>
 	
 	<!-- 차 추가 -->
 	<insert id="insertCar" parameterType="com.ssc.model.Car"
 	useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO car(
-			car_name, car_kind, car_pay, zone_num
+			car_name, car_kind, car_pay, zone_num, car_image
 		)VALUES(
-			#{carName}, #{carKind}, #{carPay}, #{zoneNum}
+			#{carName}, #{carKind}, #{carPay}, #{zoneNum}, #{carImage}
 		)
 		
 	</insert>
@@ -30,7 +31,18 @@
 	<update id="updateCarList" parameterType="com.ssc.model.Car">
 		UPDATE car SET
 			car_name=#{carName}, car_kind=#{carKind}, car_pay=#{carPay}, zone_num=#{zoneNum}
-		WHERE id=#{id}
+			
+			<choose>
+				<when test="carImage == ''">
+					, car_image=null
+				</when>
+				<when test="carImage != null">
+					,car_image=#{carImage}
+				</when>
+			</choose>
+			
+			WHERE id=#{id}
+		
 	</update>
 	
 	<!-- 차 삭제 -->
@@ -40,7 +52,7 @@
 	
 	<!-- 차 전체 조회 -->
 	<select id="selectCarList" parameterType="com.ssc.model.Car" resultMap="car">		
-		SELECT id, car_name, car_kind, car_pay, zone_num, zone_name
+		SELECT id, car_name, car_kind, car_pay, zone_num, zone_name, car_image
 		FROM car
         INNER JOIN zone
         ON zone.num = car.zone_num
@@ -49,7 +61,7 @@
 	
 	<!-- 차 상세 조회 -->
 	<select id="selectCar" parameterType="com.ssc.model.Car" resultMap="car">
-		SELECT id, car_name, car_kind, car_pay, zone_num, zone_name
+		SELECT id, car_name, car_kind, car_pay, zone_num, zone_name, car_image
 		FROM car
         INNER JOIN zone
         ON zone.num = car.zone_num

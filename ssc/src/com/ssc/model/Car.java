@@ -7,46 +7,53 @@ public class Car {
 	private int carPay;
 	private int zoneNum;
 	private String zoneName;
+	private String carImage;
+	public int getId() {
+	    return id;
+	}
+	public void setId(int id) {
+	    this.id = id;
+	}
+	public String getCarName() {
+	    return carName;
+	}
+	public void setCarName(String carName) {
+	    this.carName = carName;
+	}
+	public String getCarKind() {
+	    return carKind;
+	}
+	public void setCarKind(String carKind) {
+	    this.carKind = carKind;
+	}
+	public int getCarPay() {
+	    return carPay;
+	}
+	public void setCarPay(int carPay) {
+	    this.carPay = carPay;
+	}
+	public int getZoneNum() {
+	    return zoneNum;
+	}
+	public void setZoneNum(int zoneNum) {
+	    this.zoneNum = zoneNum;
+	}
 	public String getZoneName() {
 	    return zoneName;
 	}
 	public void setZoneName(String zoneName) {
 	    this.zoneName = zoneName;
 	}
-	public int getId() {
-		return id;
+	public String getCarImage() {
+	    return carImage;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getCarName() {
-		return carName;
-	}
-	public void setCarName(String carName) {
-		this.carName = carName;
-	}
-	public String getCarKind() {
-		return carKind;
-	}
-	public void setCarKind(String carKind) {
-		this.carKind = carKind;
-	}
-	public int getCarPay() {
-		return carPay;
-	}
-	public void setCarPay(int carPay) {
-		this.carPay = carPay;
-	}
-	public int getZoneNum() {
-		return zoneNum;
-	}
-	public void setZoneNum(int zoneNum) {
-		this.zoneNum = zoneNum;
+	public void setCarImage(String carImage) {
+	    this.carImage = carImage;
 	}
 	@Override
 	public String toString() {
 	    return "Car [id=" + id + ", carName=" + carName + ", carKind=" + carKind + ", carPay=" + carPay
-		    + ", zoneNum=" + zoneNum + ", zoneName=" + zoneName + "]";
+		    + ", zoneNum=" + zoneNum + ", zoneName=" + zoneName + ", carImage=" + carImage + "]";
 	}
 	
 	

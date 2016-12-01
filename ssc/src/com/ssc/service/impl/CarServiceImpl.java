@@ -14,6 +14,11 @@ public class CarServiceImpl implements CarService{
 	Logger logger;
 	SqlSession sqlSession;
 	
+	public CarServiceImpl(SqlSession sqlSession, Logger logger) {
+	    this.sqlSession = sqlSession;
+	    this.logger = logger;
+	}
+	
 	@Override
 	public Car selectCar(Car car) throws Exception {
 		Car result = null;		
