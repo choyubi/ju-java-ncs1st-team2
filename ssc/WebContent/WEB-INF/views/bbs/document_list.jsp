@@ -30,7 +30,7 @@
 
 				<div class="row"  id="c">
 						<div class="media">
-							<img src="${pageContext.request.contextPath}/img/bbs.png">
+							<img src="${pageContext.request.contextPath}/img/index1.png">
 						</div>
 					</div>
 

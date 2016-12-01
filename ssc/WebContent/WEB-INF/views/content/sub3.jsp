@@ -29,8 +29,11 @@
 			<div class="col-sm-10">
 
 				<div class="row" id="c">
-					<img src="img/index1.jpg">
+					<div class="media">
+						<img src="${pageContext.request.contextPath}/img/bbs1.png">
+					</div>
 				</div>
+			</div>
 
 				<!-- 회원안내 시작 -->
 

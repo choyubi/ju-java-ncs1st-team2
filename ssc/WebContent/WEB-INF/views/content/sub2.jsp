@@ -20,9 +20,12 @@
 		<div class="container" id="b">
 			<div class="col-sm-2" id="sidebar" role="navigation">
 				<div class="list-group">
-					<a href="${pageContext.request.contextPath}/sub1.do" class="list-group-item"><strong>이용방법</strong></a>
-					<a href="${pageContext.request.contextPath}/sub2.do" class="list-group-item"><strong>이용규칙</strong></a>
-					<a href="${pageContext.request.contextPath}/sub3.do" class="list-group-item"><strong>차량	정보</strong></a>
+					<a href="${pageContext.request.contextPath}/sub1.do"
+						class="list-group-item"><strong>이용방법</strong></a> <a
+						href="${pageContext.request.contextPath}/sub2.do"
+						class="list-group-item"><strong>이용규칙</strong></a> <a
+						href="${pageContext.request.contextPath}/sub3.do"
+						class="list-group-item"><strong>차량 정보</strong></a>
 
 				</div>
 			</div>
@@ -31,7 +34,9 @@
 			<div class="col-sm-10">
 
 				<div class="row" id="c">
-					<img src="img/index1.jpg">
+					<div class="media">
+						<img src="${pageContext.request.contextPath}/img/bbs1.png">
+					</div>
 				</div>
 			</div>
 
@@ -149,7 +154,7 @@
 			<table style="width: 930px; border: 1">
 				<colgroup>
 					<col width="260">
-					
+
 				</colgroup>
 				<thead>
 					<tr>

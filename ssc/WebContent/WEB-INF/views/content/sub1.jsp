@@ -57,10 +57,12 @@
 
 			<div class="col-sm-10">
 
-				<div class="row" id="c">
-					<img src="img/index1.jpg">
-				</div>
-
+				<div class="row"  id="c">
+						<div class="media">
+							<img src="${pageContext.request.contextPath}/img/bbs1.png">
+						</div>
+					</div>
+			
 				
 				<div class="box">
 					<!--서비스 안내 -> 이용방법 테이블 -->
