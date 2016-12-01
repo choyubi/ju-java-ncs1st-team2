@@ -26,8 +26,8 @@ import com.ssc.service.ZoneService;
 import com.ssc.service.impl.ZoneServiceImpl;
 
 
-@WebServlet("/book.do")
-public class Book extends BaseController {
+@WebServlet("/book1.do")
+public class Book1 extends BaseController {
 	private static final long serialVersionUID = -1186301444288244115L;
 	
 	/** (1) 사용하고자 하는 Helper 객체 선언 */
@@ -44,7 +44,38 @@ public class Book extends BaseController {
 		web = WebHelper.getInstance(request, response);
 		zoneService = new ZoneServiceImpl(sqlSession, logger);
 		
+		Zone zone = new Zone();
+		List<Zone> item = new ArrayList<Zone>();
+		try {
+			item = zoneService.selectZoneList(zone);
+		} catch (NullPointerException e) {
+			web.redirect(null, "Null값");
+			return null;
+		} catch (Exception e) {
+			web.redirect(null, "오류");
+			return null;
+		} finally {
+			sqlSession.close();
+		}
 		
-		return "book/book";
+//		JSONArray array = new JSONArray();
+//		
+//		for (int i = 0; i < item.size(); i++) {
+//			//배열인데 왜 put이냐.. json배열에 담아주기 존이름을  
+//			array.put(item.get(i).getZoneName());
+//		}
+//		PrintWriter out = response.getWriter();
+//		out.println(array);
+//		System.out.println(array.toString());
+//		
+		
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("rt", "OK");
+		data.put("item", item);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.writeValue(response.getWriter(), data);
+		
+		return null;
 	}
 }

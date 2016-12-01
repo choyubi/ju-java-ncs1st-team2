@@ -82,7 +82,7 @@
 	<!-- 회원정보를 변경한다. -->
 	<update id="updateUser" parameterType="com.ssc.model.User">
 		UPDATE user SET
-			name=#{name}, u_pw=#{uPw}, postcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2}, 
+			name=#{name}, u_pw=#{uPw}, potstcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2}, 
 			tel=#{tel}, email=#{email}, gender=#{gender}, email_yn=#{emailYn}
 			, use_area=#{useArea}, reg_date=now() , edit_date=now() , profile_img=#{profileImg}, lic_num=#{licNum}
 
