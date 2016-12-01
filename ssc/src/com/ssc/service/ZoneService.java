@@ -7,7 +7,7 @@ import com.ssc.model.Zone;
 public interface ZoneService {
 
 	/**
-	 * 존 상세보기
+	 * 존 하나의 게시물 읽어옴
 	 */
 	public Zone selectZone(Zone zone) throws Exception;
 
@@ -15,7 +15,18 @@ public interface ZoneService {
 	 * 존 리스트 보기
 	 */
 	public List<Zone> selectZoneList(Zone zone) throws Exception;
-
+	
+	/**현재글을 기준으로 이전글을 읽어들인다. **/
+	public Zone selectPrevZone(Zone zone) throws Exception;
+	
+	/**다음글 읽어들인다. **/
+	public Zone selectNextZone(Zone zone) throws Exception;
+	
+	/**전체 게시글 수 조회 **/
+	public int selectZoneCount(Zone zone) throws Exception;
+	
+	
+	
 	/**
 	 * 존 추가
 	 */

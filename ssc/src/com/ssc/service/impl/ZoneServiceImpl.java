@@ -115,4 +115,40 @@ public class ZoneServiceImpl implements ZoneService {
 
     }
 
+	@Override
+	public Zone selectPrevZone(Zone zone) throws Exception {
+		Zone result = null;
+		try {
+			result = sqlSession.selectOne("ZoneMapper.selectPrevZone", zone);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("이전글 조회에 실패했습니다.");
+		}
+		return result;
+	}
+
+
+	@Override
+	public Zone selectNextZone(Zone zone) throws Exception {
+		Zone result = null;
+		try {
+			result = sqlSession.selectOne("ZoneMapper.selectNextZone", zone);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("다음글 조회에 실패했습니다.");
+		}
+		return result;
+	}
+
+	@Override
+	public int selectZoneCount(Zone zone) throws Exception {
+		int result = 0;
+		try {
+			result = sqlSession.selectOne("ZoneMapper.selectZoneCount", zone);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("게시물 수 조회에 실패했습니다.");
+		}
+		return result;
+	}
 }

@@ -7,6 +7,10 @@ public class Zone {
     private String zoneLat;
     private String zoneLng;
     private String zoneRegion1Short;
+    
+    private int limitStart;
+	private int listCount;
+	
 	public int getNum() {
 		return num;
 	}
@@ -43,11 +47,25 @@ public class Zone {
 	public void setZoneRegion1Short(String zoneRegion1Short) {
 		this.zoneRegion1Short = zoneRegion1Short;
 	}
+	public int getLimitStart() {
+		return limitStart;
+	}
+	public void setLimitStart(int limitStart) {
+		this.limitStart = limitStart;
+	}
+	public int getListCount() {
+		return listCount;
+	}
+	public void setListCount(int listCount) {
+		this.listCount = listCount;
+	}
 	@Override
 	public String toString() {
 		return "Zone [num=" + num + ", zoneName=" + zoneName + ", zoneAddr=" + zoneAddr + ", zoneLat=" + zoneLat
-				+ ", zoneLng=" + zoneLng + ", zoneRegion1Short=" + zoneRegion1Short + "]";
+				+ ", zoneLng=" + zoneLng + ", zoneRegion1Short=" + zoneRegion1Short + ", limitStart=" + limitStart
+				+ ", listCount=" + listCount + "]";
 	}
 
-    
+	
+	
 }
