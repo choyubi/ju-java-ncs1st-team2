@@ -172,6 +172,8 @@ public class EditOk extends BaseController {
 	    web.redirect(null, "성별이 잘못되었습니다.");
 	    return null;
 	}
+	
+	
 
 	/** 6) 프로필 사진의 삭제가 요청된 경우 */
 	if (regex.isValue(imgDel) && imgDel.equals("Y")) {

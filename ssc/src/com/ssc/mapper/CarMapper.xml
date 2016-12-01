@@ -13,13 +13,14 @@
 		<result property="carPay" column="car_pay" />
 		<result property="zoneNum" column="zone_num" />
 		<result property="zoneName" column="zone_name" />
+	
 	</resultMap>
 	
 	<!-- 차 추가 -->
 	<insert id="insertCar" parameterType="com.ssc.model.Car"
 	useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO car(
-			car_name, car_kind, car_pay, zone_num
+			car_name, car_kind, car_pay, zone_num, car_image
 		)VALUES(
 			#{carName}, #{carKind}, #{carPay}, #{zoneNum}
 		)
@@ -30,7 +31,11 @@
 	<update id="updateCarList" parameterType="com.ssc.model.Car">
 		UPDATE car SET
 			car_name=#{carName}, car_kind=#{carKind}, car_pay=#{carPay}, zone_num=#{zoneNum}
-		WHERE id=#{id}
+			
+			
+			
+			WHERE id=#{id}
+		
 	</update>
 	
 	<!-- 차 삭제 -->

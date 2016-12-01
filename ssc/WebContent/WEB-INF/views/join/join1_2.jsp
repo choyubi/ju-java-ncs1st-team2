@@ -35,7 +35,7 @@
 								<input type="text" class="form-control" name="u_id" id="u_id" placeholder="아이디를 입력하세요.">
 							</div>
 							<div class="col-md-1">
-								<button class="btn btn-primary">아이디 중복확인</button>
+								<input type="button" value="아이디 중복 확인" class="btn btn-primary">
 							</div>
 						</div>
 						<!-- //아이디 입력양식 -->
@@ -265,7 +265,7 @@
 								<input type="text" class="form-control" name="lic_num" id="lic_num">
 							</div>
 							<div class="col-md-1">
-								<button class="btn btn-primary">중복여부 확인</button>
+								<input type="button" value="면허 중복 확인" class="btn btn-danger">
 							</div>
 						</div>
 
@@ -318,10 +318,11 @@
 
 						<div class="form-group">
 							<div class="col-md-4 col-md-offset-4">
-								<a href="${pageContext.request.contextPath}/join.do"><img src="img/prevbutton.jpg" style="height: 37px; width: 104px;"></a> <a href="${pageContext.request.contextPath}/join_ok.do"><img src="img/joinssbutton.jpg"></a>
+								<a href="${pageContext.request.contextPath}/join.do"><img src="img/prevbutton.jpg" style="height: 37px; width: 104px;"></a> 
 								<button type="submit">
 									<img src="img/joinssbutton.jpg">
 								</button>
+								<input type="image" src="img/joinssbutton.jpg">
 							</div>
 						</div>
 
