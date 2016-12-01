@@ -181,7 +181,7 @@
 						<c:if test="${cookie.profileThumbnail != null}">
 							<div class="form-group">
 								<!-- 등록된 프로필 이미지 표시하기 -->
-								<div class="col-md-10 col-md-offset-2">
+								<div class="col-md-8 col-md-offset-2">
 									<p>
 										<img src="${pageContext.request.contextPath}/download.do?file=${cookie.profileThumbnail.value}" class="img-circle" /> <label class="checkbox-inline"> <input type="checkbox" name="img_del" id="img_del" value="Y" /> 이미지 삭제
 										</label>
@@ -210,9 +210,9 @@
 						</c:if>
 
 						<div class="form-group">
-							<div class="col-md-offset-2 col-md-10">
+							<div class="col-md-offset-5 col-md-10">
 								<button type="submit" class="btn btn-primary">수정하기</button>
-								<button type="reset" class="btn btn-danger">다시작성</button>
+								<a href="${pageContext.request.contextPath }/user/out_ok.do" class="btn btn-danger">탈퇴하기</a>
 							</div>
 						</div>
 
