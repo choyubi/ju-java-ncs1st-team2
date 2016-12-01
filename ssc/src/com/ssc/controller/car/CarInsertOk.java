@@ -20,6 +20,7 @@ import com.ssc.helper.RegexHelper;
 import com.ssc.helper.UploadHelper;
 import com.ssc.helper.WebHelper;
 import com.ssc.model.Car;
+import com.ssc.model.File;
 import com.ssc.service.CarService;
 import com.ssc.service.FileService;
 import com.ssc.service.impl.CarServiceImpl;
@@ -27,7 +28,7 @@ import com.ssc.service.impl.FileServiceImpl;
 
 
 @WebServlet("/car_ok.do")
-public class CarOk extends BaseController {
+public class CarInsertOk extends BaseController {
   
 
     private static final long serialVersionUID = -62796451649479736L;
@@ -50,6 +51,8 @@ public class CarOk extends BaseController {
 	carService = new CarServiceImpl(sqlSession, logger);
 	fileService = new FileServiceImpl(sqlSession, logger);
 	regex = RegexHelper.getInstance();
+	
+	
 	
 	try{
 	    upload.multipartRequest(request);
@@ -98,14 +101,7 @@ public class CarOk extends BaseController {
 		return null;
 	}
 	
-	List<FileInfo> fileList = upload.getFileList();
-	String carImage = null;
-	if(fileList.size() > 0){
-	    FileInfo info = fileList.get(0);
-	    carImage = info.getFileDir() + "/" + info.getFileName();
-	}
 	
-	logger.debug("carImage=" + carImage);
 	
 	int carPay = Integer.parseInt(carPay1);
 	
@@ -115,7 +111,9 @@ public class CarOk extends BaseController {
 	car.setCarKind(carKind);
 	car.setCarPay(carPay);
 	car.setZoneName(zoneName);
-	car.setCarImage(carImage);
+	
+	logger.debug("car=" + car.toString());
+	
 	
 	
 	
@@ -127,12 +125,7 @@ public class CarOk extends BaseController {
 	    return null;
 	}
 	
-	sqlSession.close();
-	web.redirect(web.getRootPath() + "/??", "차 추가가 완료되었슴");
-	
-	
-	
-	
+	// 우선중지
 	
 	return null;
     }

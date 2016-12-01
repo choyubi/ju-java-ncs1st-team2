@@ -10,24 +10,19 @@ import com.ssc.helper.BaseController;
 import com.ssc.helper.WebHelper;
 
 
+@WebServlet("/car_edit.do")
+public class CarEdit extends BaseController {
 
-@WebServlet("/car.do")
-public class Car extends BaseController {
 
-  
-    private static final long serialVersionUID = 5977481452038807211L;
+    private static final long serialVersionUID = -7357296657805089971L;
     
     WebHelper web;
-   
-
     @Override
     public String doRun(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 	web = WebHelper.getInstance(request, response);
 	
 	
-	
-	return "car/car";
+	return "car/car_edit";
     }
     
 }
