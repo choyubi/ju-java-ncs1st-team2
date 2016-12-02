@@ -66,7 +66,7 @@
 		<label for="content" class="col-sm-2 control-label">내용</label>
 		<div class="col-sm-10">
 			<textarea id="content" name="content" class="ckeditor">
-				${eadDocument.content}</textarea>
+				${readDocument.content}</textarea>
 		</div>
 	</div>
 	<!-- 파일업로드 -->

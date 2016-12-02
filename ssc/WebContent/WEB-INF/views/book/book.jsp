@@ -9,7 +9,6 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-<%@ include file="/WEB-INF/views/inc/head.jsp"%>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -51,7 +50,7 @@
 				<h2>예약버튼 들어올 자리</h2>
 				<p>대여일: <input type="text" id="Datepicker1"><select><option>00:00</select></p>
 				<p>반납일: <input type="text" id="Datepicker2"><select><option>00:00</select></p>
-				
+<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=90fb1d3654482b09c1d9266d05b2e037"></script>				
 <script type="text/javascript">
 $(function(){
     $("#zonelist").autocomplete({
@@ -74,7 +73,7 @@ $(function(){
                     	)
                     },
                     error :function (data) {
-                    	alert("ajax에러 발생");
+                    	alert("자동완성 ajax에러 발생");
                     }
                 });
          }
@@ -89,20 +88,102 @@ $(function(){
 			</div>
 			<!--탭 bar 끝-->
 
-			<div id="mapbox" class="col-sm-10">
-				<div id="map" style="width: 800px; height: 476px;"></div>
-				<script type="text/javascript"
-					src="http://apis.daum.net/maps/maps3.js?apikey=90fb1d3654482b09c1d9266d05b2e037"></script>
-				<script>
-					var container = document.getElementById('map');
-					var options = {
-						center : new daum.maps.LatLng(33.450701, 126.570667),
-						level : 3
-					};
+	<div id="mapbox" class="col-sm-10">
+	<div id="map" style="width: 800px; height: 476px;"></div>
+    <script type="text/javascript">
+        window.onload = function(num) {
+              
 
-					var map = new daum.maps.Map(container, options);
-				</script>
+            // 다중 마커와 인포윈도우 표시	
+             $.ajax({
+                    type: 'post',
+                    url: "${pageContext.request.contextPath}/book1.do",
+                    dataType: "json",	                
+                    success: function(json) {
+                        // 지도의 중심
+                        var position = new daum.maps.LatLng(37.362186, 127.106865);
+                   
+                        // 기본 지도 표시
+                        var map = new daum.maps.Map(document.getElementById('map'), {
+                            center: position,
+                            level: 5,
+                            mapTypeId: daum.maps.MapTypeId.ROADMAP
+                        });
+                      
+                        // 지도 콘트론 표시
+                        var zoomControl = new daum.maps.ZoomControl();
+                        map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+                        var mapTypeControl = new daum.maps.MapTypeControl();
+                        map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+                   
+                        var imageSrc = "http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+                        
+                        for (var i = 0; i < json.item.length; i++) {			    
+             			    // 마커 이미지의 이미지 크기 입니다
+             			    var imageSize = new daum.maps.Size(24, 35); 			    
+             			    // 마커 이미지를 생성합니다    
+             			    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 			    
+             			    // 마커를 생성합니다
+             			    var marker = new daum.maps.Marker({
+             			    	map: map, // 마커를 표시할 지도
+             			        position: new daum.maps.LatLng(json.item[i].zoneLat, json.item[i].zoneLng), // 마커를 표시할 위치
+             			        title : json.item[i].zoneName, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+             			        image : markerImage // 마커 이미지 
+             			    });
+             			    
+             			    
+             			    
+             			     
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent = "<div>" + json.item[i].zoneName + "</div>", // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
+             			    // 마커에 표시할 인포윈도우를 생성합니다 
+             			    var infowindow = new daum.maps.InfoWindow({
+             			    	content : iwContent,
+             			        removable : iwRemoveable
+             			    	//"<div>" + json.item[i].zoneName + "</div>"
+             			    	//content: iwContent // 인포윈도우에 표시할 내용
+             			    });
+             			   	
+             			    daum.maps.event.addListener(marker, 'click', function() {
+             			      // 마커 위에 인포윈도우를 표시합니다
+             			      alert("클릭확인");
+             			      infowindow.open(map, marker); 
+             				});
+             			  
+             			}
+                    },
+                    error :function (data) {
+                    	alert("지도 ajax에러 발생");
+                    }
+                });
+        };
+           //위치 정보와 인포윈도우에 표시할 정도
+//             var locations = [[37.362186,127.106865,'1번'],
+//                              [37.6732922,128.7065569,'2번']];
+           
+           
+//             for(i = 0; i < locations.length; i++) {
+//                 // 다중 마커
+//                 var marker = new daum.maps.Marker({
+//                     position: new daum.maps.LatLng(locations[i][0], locations[i][1])
+//                 });
+//                 marker.setMap(map);
+       
+//                 //인포 윈도우
+//                 daum.maps.event.addListener(marker, 'click', (function(marker, i) {
+//                     return function() {
+//                         var infowindow = new daum.maps.InfoWindow({
+//                             content: '<p style="margin:7px 22px 7px 12px;font:12px/1.5 sans-serif">' + locations[i][2] + '</p>',
+//                             removable : true
+//                         });
+//                       infowindow.open(map, marker);
+//                     }
+//                 })(marker, i));
+//             }
+
+    </script>
 			</div>
 				<!--게시판 bar 끝-->
 		</div>
