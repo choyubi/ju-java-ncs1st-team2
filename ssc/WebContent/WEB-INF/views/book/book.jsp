@@ -134,6 +134,7 @@ $(function(){
              			        title : json.item[i].zoneName, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
              			        image : markerImage // 마커 이미지 
              			    });
+<<<<<<< HEAD
 
         						if(json.item[i].zoneAddr > 5){
         							json.item[i].zoneAddr = json.item[i].zoneAddr.substring(0, 5) + '...';
@@ -158,6 +159,15 @@ $(function(){
 
 
 								iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+=======
+             			    
+             			    
+             			    
+             			     
+							// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+							var iwContent = "<div>" + json.item[i].zoneName + "</div>", // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+							iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+>>>>>>> branch 'master' of https://github.com/ITPAPER/ju-java-ncs1st-team2.git
 
              			    // 마커에 표시할 인포윈도우를 생성합니다 
              			    var infowindow = new daum.maps.InfoWindow({

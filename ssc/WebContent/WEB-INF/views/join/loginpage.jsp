@@ -22,7 +22,7 @@
 			<div class="col-sm-offset-3 col-sm-6"
 				style="margin-top: 100px; height: 300px;">
 				<div>
-					<form role="form">
+					<form role="form" method="post" action="${pageContext.request.contextPath }/user/login_ok.do">
 						<fieldset>
 							<legend>
 								<strong>로그인</strong>
@@ -37,8 +37,8 @@
 							</div>
 							<div class="pull-right">
 								<button type="button" class="btn btn-warning">로그인</button>
-								<a href="join.do" class="btn btn-danger">회원가입</a> <a
-									href="join3.do" class="btn btn-info">ID/PW 찾기</a>
+								<a href="join.do" class="btn btn-danger">회원가입</a> 
+								<a href="join3.do" class="btn btn-info">ID/PW 찾기</a>
 							</div>
 						</fieldset>
 					</form>

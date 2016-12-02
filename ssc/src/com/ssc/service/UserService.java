@@ -12,6 +12,10 @@ public interface UserService {
 	 */
 	public void selectUserIdCount(User user) throws Exception;
 	
+	
+	public int selectIdCheck(User user) throws Exception;
+	
+	
 	/**
 	 * 이메일 중복검사
 	 * @param member - 이메일

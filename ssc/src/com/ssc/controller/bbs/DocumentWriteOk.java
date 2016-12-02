@@ -164,10 +164,10 @@ public class DocumentWriteOk extends BaseController {
 
 		/** (9) Service를 통한 게시물 저장 */
 		try {
-			//for (int i=1; i<=100; i++) {
-				//document.setSubject(subject + "(" + i + ")");
+			for (int i=1; i<=100; i++) {
+				document.setSubject(subject + "(" + i + ")");
 				documentService.insertDocument(document);
-			//}
+			}
 		} catch (Exception e) {
 			sqlSession.close();
 			web.redirect(null, e.getLocalizedMessage());
