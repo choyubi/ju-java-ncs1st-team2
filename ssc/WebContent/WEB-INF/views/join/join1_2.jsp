@@ -318,11 +318,11 @@
 
 						<div class="form-group">
 							<div class="col-md-4 col-md-offset-4">
-								<a href="${pageContext.request.contextPath}/join.do"><img src="img/prevbutton.jpg" style="height: 37px; width: 104px;"></a> 
-								<button type="submit">
-									<img src="img/joinssbutton.jpg">
-								</button>
-								<input type="image" src="img/joinssbutton.jpg">
+								<a href="${pageContext.request.contextPath}/join.do"><img src="img/prevbutton.png" style="height: 37px; width: 104px; "></a> 
+								<!-- <button type="submit">
+									<img src="img/join.png" style="height: 37px; width: 104px;">
+								</button> -->
+								<input type="image" src="img/join.png" style="height: 37px; width: 104px; vertical-align: middle;">
 							</div>
 						</div>
 
