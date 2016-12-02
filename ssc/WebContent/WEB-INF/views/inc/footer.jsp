@@ -26,16 +26,16 @@
 
 <div class="floating">
 	<div>
-		<a href="http://www.kweather.co.kr/main/main.html"><img src="${pageContext.request.contextPath}/img/날씨.png"></a>
+		<a href="http://www.kweather.co.kr/main/main.html"><img src="${pageContext.request.contextPath}/img/날씨.png" title="날씨"></a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/join.do"> <img src="${pageContext.request.contextPath}/img/a.png"></a>
+		<a href="${pageContext.request.contextPath}/join.do"> <img src="${pageContext.request.contextPath}/img/a.png" title="회원가입"></a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/rec.do"> <img src="${pageContext.request.contextPath}/img/추천.png"></a>
+		<a href="${pageContext.request.contextPath}/rec.do"> <img src="${pageContext.request.contextPath}/img/추천.png" title="추천지"></a>
 	</div>
 	<div>
-		<a href="${pageContext.request.contextPath}/book.do"> <img src="${pageContext.request.contextPath}/img/예약.png"></a>
+		<a href="${pageContext.request.contextPath}/book.do"> <img src="${pageContext.request.contextPath}/img/예약.png" title="온라인 예약"></a>
 	</div>
 </div>
 <!-- //공통 하단 영역 -->
