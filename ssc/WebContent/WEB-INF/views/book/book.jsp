@@ -9,6 +9,8 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
+
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -81,9 +83,9 @@ $(function(){
 })
 </script>
 					
-	
+			
 			<h2>자동완성기능</h2>
-			<input id="zonelist" type="text" />
+			<input id="zonelist" type="text"/>
 			
 			</div>
 			<!--탭 bar 끝-->
@@ -91,9 +93,11 @@ $(function(){
 	<div id="mapbox" class="col-sm-10">
 	<div id="map" style="width: 800px; height: 476px;"></div>
     <script type="text/javascript">
-        window.onload = function(num) {
-              
+        
+    
 
+    window.onload = function (e) {
+         	
             // 다중 마커와 인포윈도우 표시	
              $.ajax({
                     type: 'post',
@@ -130,58 +134,63 @@ $(function(){
              			        title : json.item[i].zoneName, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
              			        image : markerImage // 마커 이미지 
              			    });
-             			    
-             			    
-             			    
-             			     
-// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-var iwContent = "<div>" + json.item[i].zoneName + "</div>", // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+        						if(json.item[i].zoneAddr > 5){
+        							json.item[i].zoneAddr = json.item[i].zoneAddr.substring(0, 5) + '...';
+        						}
+								// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+								// 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+								var iwContent =   "<div>" + json.item[i].zoneName +"///////"+ json.item[i].num+ "</div>"+
+												  '<div class="tooltip myInfoWindow">' +
+												  '<h4><a class="map_zone_name" href="#">' +
+												  '<em class="map_zone_id" style="display:none;">' + json.item[i].num + '</em>' +
+												  '<span title="' +  json.item[i].zoneName + '">' + json.item[i].zoneName + '</span><span class="bg"></span>' +
+												  '</a></h4>' +
+												  '<p><a title="'+ json.item[i].zoneAddr + '">' + json.item[i].zoneAddr + '</a><br />' +
+												  '<p class="btn">' +
+												  '<em class="map_zone_id" style="display:none;">' + json.item[i].num + '</em>' +
+												  '<a id="abc" href="#">' +
+												  '예약하러 가기</a></p>';												 	
+												  
+												$(document).on("click", "#abc", function () {				 						
+														alert("클릭해쪄염");																		
+												} )
+
+
+								iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
              			    // 마커에 표시할 인포윈도우를 생성합니다 
              			    var infowindow = new daum.maps.InfoWindow({
              			    	content : iwContent,
              			        removable : iwRemoveable
-             			    	//"<div>" + json.item[i].zoneName + "</div>"
-             			    	//content: iwContent // 인포윈도우에 표시할 내용
              			    });
-             			   	
-             			    daum.maps.event.addListener(marker, 'click', function() {
-             			      // 마커 위에 인포윈도우를 표시합니다
-             			      alert("클릭확인");
-             			      infowindow.open(map, marker); 
-             				});
+
+             			  daum.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow)); 
+             			   
              			  
+             			  var prev_infowindow = false;
+
+
+
+             			  function makeClickListener(map, marker, infowindow) {
+             			      return function() {
+             			   	  if( prev_infowindow ) {
+             			            prev_infowindow.close();
+             			         }
+             			  	  
+             			   	 prev_infowindow = infowindow;
+             			   	 infowindow.open(map, marker);         
+             			    	  
+             			  	 };
+             			  }	  
              			}
-                    },
+                   	},
                     error :function (data) {
                     	alert("지도 ajax에러 발생");
                     }
                 });
         };
-           //위치 정보와 인포윈도우에 표시할 정도
-//             var locations = [[37.362186,127.106865,'1번'],
-//                              [37.6732922,128.7065569,'2번']];
-           
-           
-//             for(i = 0; i < locations.length; i++) {
-//                 // 다중 마커
-//                 var marker = new daum.maps.Marker({
-//                     position: new daum.maps.LatLng(locations[i][0], locations[i][1])
-//                 });
-//                 marker.setMap(map);
-       
-//                 //인포 윈도우
-//                 daum.maps.event.addListener(marker, 'click', (function(marker, i) {
-//                     return function() {
-//                         var infowindow = new daum.maps.InfoWindow({
-//                             content: '<p style="margin:7px 22px 7px 12px;font:12px/1.5 sans-serif">' + locations[i][2] + '</p>',
-//                             removable : true
-//                         });
-//                       infowindow.open(map, marker);
-//                     }
-//                 })(marker, i));
-//             }
+
 
     </script>
 			</div>
@@ -193,7 +202,12 @@ iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도�
 
 	<!--main 끝-->
 
-
+<script type="text/javascript">
+// $("#zonelist").on('click', function () {
+// 	$("#zonelist").val("123123123");
+// 	//$("#zonelist").html("<input id='zonelist' type='text' value=' "+ json.item[i].zoneName  +" ' />");
+// })
+</script>
 	<hr>
 	
 	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
