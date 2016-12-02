@@ -27,7 +27,7 @@ import com.ssc.service.impl.ZoneServiceImpl;
 
 
 @WebServlet("/book1.do")
-public class Book1 extends BaseController {
+public class Book2 extends BaseController {
 	private static final long serialVersionUID = -1186301444288244115L;
 	
 	/** (1) 사용하고자 하는 Helper 객체 선언 */

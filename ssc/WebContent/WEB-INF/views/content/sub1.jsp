@@ -57,18 +57,20 @@
 
 			<div class="col-sm-10">
 
-				<div class="row" id="c">
-					<img src="img/index1.jpg">
-				</div>
-
+				<div class="row"  id="c">
+						<div class="media">
+							<img src="${pageContext.request.contextPath}/img/bbs1.png">
+						</div>
+					</div>
+			
 				
 				<div class="box">
 					<!--서비스 안내 -> 이용방법 테이블 -->
 					<div id="sscar1" class="content" style="display: block">
 						<h3>SSC 이용방법</h3>
 						<p>
-							가입에서 예약 사용까지 간편하게 이용할 수 있는 편리하고 경제적인 SSC의 이용방법을 알려드립니다.<br />
-							SSC와 함께 스마트 카셰어링을 경험해 보세요!
+							가입에서 예약 사용까지 간편하게 이용할 수 있는 편리하고 경제적인 SSC카의 이용방법을 알려드립니다.<br />
+							SSC카와 함께 스마트 카셰어링을 경험해 보세요!
 						</p>
 						<ul id="gallery">
 							<li><span class="thumb"><img src="img/thum-01.png"
@@ -77,7 +79,7 @@
 									가능합니다.</span></li>
 							<li><span class="thumb"><img src="img/thum-02.png"
 									alt="차량예약" /></span> <span class="text"><strong>차량예약</strong><br />
-									SSC회원 가입 승인 후 예약이 가능합니다.<br />홈페이지 및 모바일앱을 이용해 예약하실 수 있고 정삭정으로
+									SSC회원 가입 승인 후 예약이 가능합니다.<br />홈페이지를 이용해 예약하실 수 있고 정상적으로
 									예약완료된 경우 이메일로 예약 메시지가 전송됩니다.</span></li>
 							<li><span class="thumb"><img src="img/thum-03.png"
 									alt="SSC이용" /></span> <span class="text"><strong>SSC이용</strong><br />예약한

@@ -20,9 +20,12 @@
 		<div class="container" id="b">
 			<div class="col-sm-2" id="sidebar" role="navigation">
 				<div class="list-group">
-					<a href="${pageContext.request.contextPath}/sub1.do" class="list-group-item"><strong>이용방법</strong></a>
-					<a href="${pageContext.request.contextPath}/sub2.do" class="list-group-item"><strong>이용규칙</strong></a>
-					<a href="${pageContext.request.contextPath}/sub3.do" class="list-group-item"><strong>차량	정보</strong></a>
+					<a href="${pageContext.request.contextPath}/sub1.do"
+						class="list-group-item"><strong>이용방법</strong></a> <a
+						href="${pageContext.request.contextPath}/sub2.do"
+						class="list-group-item"><strong>이용규칙</strong></a> <a
+						href="${pageContext.request.contextPath}/sub3.do"
+						class="list-group-item"><strong>차량 정보</strong></a>
 
 				</div>
 			</div>
@@ -31,16 +34,18 @@
 			<div class="col-sm-10">
 
 				<div class="row" id="c">
-					<img src="img/index1.jpg">
+					<div class="media">
+						<img src="${pageContext.request.contextPath}/img/bbs1.png">
+					</div>
 				</div>
-			</div>
+			
 
 			<!--서비스 안내 -> 이용규칙 테이블 -->
 			<div class="box">
 				<div id="sscar2" class="content" style="display: block">
 					<h3>SSC 이용규칙</h3>
 
-					<ul id="gallery">
+					<ul style="list-style: none">
 						<li><span class="rule"><img src="img/rule-01.PNG"
 								alt="이용 후 대여한 SSC존으로 반납 필수!" /></span> <span class="text"><strong>이용
 									후 대여한 SSC존으로 반납 필수!</strong><br /> 편도 이용을 제외한 모든 차량 반납은 대여한 SSC존으로 하셔야
@@ -69,11 +74,11 @@
 					</ul>
 				</div>
 			</div>
-
+			<br>
 			<!-- 패널티 규정 작성 시작 -->
 
 			<h4>패널티 규정</h4>
-			<table style="width: 970px; border: 1">
+			<table class="table" style="height: 100%; width: 970px;">
 				<thead>
 					<tr>
 						<th colspan="2" class="first">운전자 준수사항 미이행 내용</th>
@@ -146,10 +151,10 @@
 
 			<!-- 이용자제한 안내 -->
 			<h4>이용자 제한 안내</h4>
-			<table style="width: 930px; border: 1">
+			<table class="table" style="width: 930px; border: 1">
 				<colgroup>
 					<col width="260">
-					
+
 				</colgroup>
 				<thead>
 					<tr>
@@ -184,11 +189,16 @@
 			</table>
 			<!-- 이용자제한 안내  끝 -->
 			<br> <br>
-
-
-			<!-- 푸터 -->
-			<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
+			</div>
+			<!--// col-sm-10 영역 끝  -->
 		</div>
+		<!--// 컨테이너 영역 끝 -->
 	</div>
+	<!--// main영역 끝 -->
+
+	<!-- 푸터 -->
+	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
+
+
 </body>
 </html>
