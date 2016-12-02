@@ -8,6 +8,31 @@
 <head>
 <%@ include file="/WEB-INF/views/inc/head.jsp"%>
 
+<script type="text/javascript">
+$(function () {
+	$("#id_check").click(function(e){
+		e.preventDefault();
+		
+		$.ajax({
+			type: "POST",
+			url: "${pageContext.request.contextPath}/id_check.do",
+			data: {
+				u_id :$('#u_id').val()
+			},
+			dataType: 'html',
+			success: function(data){
+				if($.trim(data)=="YES"){
+					$('#id_check_result').html("<p>사용 가능한 아이디입니다.</p>")
+				}else{
+					$('#id_check_result').html("<p>중복된 아이디입니다.</p>")
+				}
+			}
+		});
+	});
+});
+
+</script>
+
 </head>
 
 <body>
@@ -34,9 +59,13 @@
 							<div class="col-md-4">
 								<input type="text" class="form-control" name="u_id" id="u_id" placeholder="아이디를 입력하세요.">
 							</div>
-							<div class="col-md-1">
-								<input type="button" value="아이디 중복 확인" class="btn btn-primary">
+							<div class="col-md-6">
+								<input type="button" id="id_check" value="아이디 중복 확인" class="btn btn-primary">
+								<div id="id_check_result">
+										
+								</div>
 							</div>
+								
 						</div>
 						<!-- //아이디 입력양식 -->
 

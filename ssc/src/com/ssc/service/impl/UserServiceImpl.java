@@ -33,6 +33,8 @@ public class UserServiceImpl implements UserService {
 		}
 
 	}
+	
+	
 
 	@Override // 이메일 예외처리
 	public void selectEmailCount(User user) throws Exception {
@@ -204,5 +206,19 @@ public class UserServiceImpl implements UserService {
 		}
 
 	}
+
+	@Override
+	public int selectIdCheck(User user) throws Exception {
+	    int result = 0;
+	    try{
+		result = sqlSession.selectOne("UserMapper.selectuIdCount", user);
+	    }catch(Exception e){
+		logger.error(e.getLocalizedMessage());
+		throw new Exception("아이디 중복검사에 실패");
+	    }
+	    return result;
+	}
+
+	
 
 }
