@@ -27,6 +27,33 @@
     	WHERE num=#{num}
     </select>
     
+    
+    
+    <!-- 이전글 정보를 조회한다. -->
+    <select id="selectPrevZone" parameterType="com.ssc.model.Zone" resultMap="zone">
+    	SELECT num,  zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
+    	WHERE num=#{num}
+    	ORDER by num DESC
+    	LIMIT 0,1
+    </select>
+    
+    <!-- 다음글 정보를 조회한다. -->
+    <select id="selectNextZone" parameterType="com.ssc.model.Zone" resultMap="zone">
+    	SELECT num,  zone_name, zone_addr, zone_lat, zone_lng, zone_region1_short FROM zone
+    	WHERE num=#{num}
+    	ORDER by num ASC
+    	LIMIT 0,1
+    </select>
+    
+    <!-- 자신의 게시물인지 검사한다 -->
+    <select id="selectZoneCount" parameterType="com.ssc.model.Zone" resultType="int">
+    	SELECT COUNT(num) FROM zone
+    </select>
+    
+    
+    
+    
+    
     <!-- 존 추가 -->
     <insert id="insertZone" parameterType="com.ssc.model.Zone"
     useGeneratedKeys="true" keyProperty="num">
