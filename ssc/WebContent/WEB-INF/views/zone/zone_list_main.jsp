@@ -25,8 +25,8 @@
 						<thead>
 							<tr>
 								<th class="text-center" style="width: 100px">번호</th>
-								<th class="text-center">Zone 위치</th>
-								<th class="text-center" style="width: 120px">Zone 주소</th>
+								<th class="text-center" style="width: 200px">Zone 위치</th>
+								<th class="text-center" >Zone 주소</th>
 								<th class="text-center" style="width: 120px">Zone 도시</th>
 							</tr>
 						</thead>
